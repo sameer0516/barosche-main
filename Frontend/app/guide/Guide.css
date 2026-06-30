@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.guide-container {
+    font-family: 'Poppins', sans-serif;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 130px 20px;
+    background-color: #ffffff;
+}
+
+.guide-main-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 50px;
+    letter-spacing: -0.3px;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    row-gap: 50px;
+}
+
+.guide-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+/* Image Frame Wrapper */
+.guide-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: #f7f7f7;
+    margin-bottom: 18px;
+}
+
+.guide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.guide-card:hover .guide-img {
+    transform: scale(1.03);
+}
+
+.guide-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.guide-card-title {
+    font-size: 22px;
+    font-weight: 400;
+    color: #111111;
+    line-height: 1.4;
+    margin: 0 0 4px 0;
+    cursor: pointer;
+}
+
+.guide-card-title:hover {
+    color: #555555;
+}
+
+.guide-author {
+    font-size: 18px;
+    color: #616161;
+    text-transform: capitalize;
+    margin-bottom: 12px;
+    font-weight: 400;
+}
+
+/* Paragraph Text Styling */
+.guide-description {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #555555;
+    margin: 0 0 12px 0;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Read More Link Style */
+.read-more-link {
+    font-size: 16px;
+    color: #4d4d4d;
+    text-decoration: none;
+    font-weight: 400;
+    width: max-content;
+    transition: color 0.2s ease;
+}
+
+.read-more-link:hover {
+    color: #111111;
+}
+
+@media (max-width: 1024px) {
+    .guide-grid {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 24px;
+        row-gap: 40px;
+    }
+
+    .guide-main-title {
+        font-size: 1.7rem;
+        margin-bottom: 35px;
+    }
+}
+
+@media (max-width: 650px) {
+    .guide-grid {
+        grid-template-columns: 1fr;
+        row-gap: 35px;
+    }
+
+    .guide-main-title {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        margin-bottom: 30px;
+    }
+
+    .guide-card-title {
+        font-size: 1rem;
+    }
+
+    .guide-description {
+        -webkit-line-clamp: 5;
+    }
+}

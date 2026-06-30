@@ -1,0 +1,47 @@
+.Shipping {
+    padding-top: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Shipping-container {
+    width: 1500px;
+}
+
+.Shipping-title {
+    text-align: center;
+    font-size: 34px;
+}
+
+.Coverage-container {
+    padding: 20px 0px;
+}
+
+.Coverage-title {
+    font-size: 40px;
+}
+
+.Effective {
+    padding-top: 30px;
+    font-size: 26px;
+    color: #575757;
+}
+
+.Effective-prag {
+    padding: 8px 0px;
+    font-size: 21px;
+}
+
+.Shipping-Coverage-prag {
+    font-size: 26px;
+    padding: 10px 0px;
+}
+
+.Shipping-Coverage-list {
+    padding: 7px 20px;
+}
+
+.Shipping-Coverage-list li {
+    font-size: 22px;
+}

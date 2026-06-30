@@ -1,0 +1,59 @@
+.Terms {
+    padding: 100px 140px;
+}
+
+.Terms-title {
+    text-align: center;
+    font-size: 40px;
+}
+
+.Terms-subtitle {
+    padding: 5px 0px;
+    font-size: 23px;
+}
+
+.Terms-prag {
+    font-size: 20px;
+    padding: 6px 0px;
+}
+
+.Terms-container-title {
+    padding: 20px 0px;
+    font-size: 30px;
+}
+
+.Terms-container-content h3 {
+    font-size: 30px;
+    font-weight: 400;
+    padding: 10px 0px;
+}
+
+.terms-text h3 {
+    font-size: 30px;
+    font-weight: 400;
+    padding: 10px 0px;
+}
+
+.Terms-container-text {
+    font-size: 20px;
+    line-height: 1.5;
+    padding: 10px 0px;
+}
+
+@media (max-width: 768px) {
+    .Terms {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Terms {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 476px) {
+    .Terms {
+        padding: 10px 20px;
+    }
+}

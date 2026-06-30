@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* Container Wrapper */
+.size-guide-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Hero Banner Section */
+.size-guide-hero {
+  position: relative;
+  width: 100%;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 5%;
+}
+
+/* Content Box */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+  color: #000000;
+  margin-right: 5%;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+  color: #000000;
+}
+
+/* ── Split Layout for Ring Steps & Image ── */
+.ring-size-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 10px auto 40px auto;
+  padding: 0 5%;
+  gap: 50px;
+  font-family: "Poppins", sans-serif;
+}
+
+.ring-text-content {
+  flex: 1;
+}
+
+.ring-image-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 100px; /* Kept sticky for scrolling alongside steps */
+}
+
+.ring-image-content img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+/* Step Formatting */
+.step-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #a88874;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.step-list {
+  padding-left: 20px;
+  margin: 0 0 20px 0;
+}
+
+.step-list li {
+  font-size: 15.5px;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Expert Tips List */
+.expert-tips-list {
+  padding-left: 20px;
+  margin: 15px 0 30px 0;
+}
+
+.expert-tips-list li {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  position: relative;
+  list-style-type: disc;
+}
+
+/* ── Typography & Headers ── */
+.section-main-title {
+  font-size: 34px;
+  font-weight: 400;
+  color: #a88874;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.section-sub-title {
+  font-size: 26px;
+  font-weight: 500;
+  color: #a88874;
+  margin-bottom: 15px;
+}
+
+.table-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #a88874;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* ── Centered & Left Aligned Containers ── */
+.centered-info-section {
+  max-width: 900px;
+  margin: 80px auto 30px auto;
+  padding: 0 5%;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.centered-info-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444444;
+  margin-bottom: 20px;
+}
+
+.left-aligned-section {
+  max-width: 1600px;
+  margin: 30px auto 20px auto;
+  padding: 0 5%;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+}
+
+.left-info-content p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #444444;
+  margin-bottom: 15px;
+}
+
+/* ── Tables & Charts ── */
+.chart-section-wrapper {
+  max-width: 1600px;
+  margin: 20px auto 80px auto;
+  padding: 0 5%;
+  font-family: "Poppins", sans-serif;
+}
+
+.table-responsive-container {
+  width: 100%;
+  overflow-x: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+}
+
+.size-guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.size-guide-table th {
+  background-color: #fcf9f6; 
+  color: #a88874;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 16px 12px;
+  border: 1px solid #eae1da;
+  white-space: nowrap;
+}
+
+.size-guide-table td {
+  padding: 14px 12px;
+  border: 1px solid #eee7e2;
+  color: #444444;
+  font-size: 14.5px;
+}
+
+.size-guide-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.size-guide-table tbody tr:hover {
+  background-color: #fdfbf9;
+}
+
+/* ── Extra Notes & Tips ── */
+.style-tip-container {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.style-tip-container h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.style-tip-container ul {
+  padding-left: 25px;
+  margin: 0;
+}
+
+.style-tip-container li {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.recommended-text {
+  margin-top: 20px;
+  font-size: 15px;
+  text-align: left;
+  color: #444;
+}
+
+.recommended-text strong {
+  font-weight: 700;
+  color: #000;
+}
+
+/* ==============================================
+   FAQ Section Styles
+   ============================================== */
+.faq-section-wrapper {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.faq-section-wrapper .section-main-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #333;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faq-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item.active {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.faq-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1e293b;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.faq-question:hover {
+  background-color: #f8fafc;
+}
+
+.faq-icon {
+  font-size: 22px;
+  font-weight: 300;
+  color: #64748b;
+  margin-left: 15px;
+  display: inline-block;
+  min-width: 20px;
+  text-align: center;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+  background-color: #ffffff;
+  padding: 0 24px;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px; 
+  padding: 0 24px 20px 24px;
+}
+
+.faq-answer p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #475569;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 15px;
+}
+
+/* ── Responsive Mobile Design ── */
+@media (max-width: 768px) {
+  .size-guide-hero {
+    padding: 80px 5%;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .ring-size-container {
+    flex-direction: column;
+    margin: 30px auto;
+    gap: 40px;
+  }
+  
+  .ring-image-content {
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+
+  .section-main-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  
+  .section-sub-title {
+    font-size: 22px !important;
+  }
+  
+  .table-title {
+    font-size: 20px;
+  }
+
+  .centered-info-section, .left-aligned-section {
+    margin: 40px auto 20px auto;
+  }
+
+  .centered-info-content p, .left-info-content p {
+    font-size: 14.5px;
+  }
+
+  .size-guide-table th, 
+  .size-guide-table td {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  
+  .faq-question {
+    font-size: 15px;
+    padding: 15px 18px;
+  }
+  
+  .faq-answer {
+    padding: 0 18px;
+  }
+  
+  .faq-item.active .faq-answer {
+    padding: 0 18px 18px 18px;
+  }
+}

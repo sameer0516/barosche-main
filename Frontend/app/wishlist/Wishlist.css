@@ -1,0 +1,342 @@
+/* ── Wishlist Page ── */
+.wl-page {
+    /* min-height: 80vh; */
+    padding: 70px 0 80px;
+    background: #faf9f7;
+}
+
+.wl-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header */
+.wl-header {
+    margin-bottom: 20px;
+}
+
+.wl-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #888;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+}
+
+.wl-breadcrumb a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.wl-breadcrumb a:hover {
+    color: #c9a96e;
+}
+
+.wl-bc-sep {
+    color: #ccc;
+}
+
+.wl-title {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: 0.04em;
+    margin: 0 0 6px;
+}
+
+.wl-subtitle {
+    font-size: 16px;
+    color: #888;
+    margin: 0;
+    letter-spacing: 0.03em;
+}
+
+/* Empty State */
+.wl-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.wl-empty-icon {
+    width: 72px;
+    height: 72px;
+    color: #d4cfc8;
+    margin-bottom: 24px;
+}
+
+.wl-empty-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.wl-empty-title {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 10px;
+}
+
+.wl-empty-sub {
+    font-size: 14px;
+    color: #888;
+    max-width: 380px;
+    line-height: 1.6;
+    margin: 0 0 32px;
+}
+
+.wl-btn-primary {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: background 0.25s;
+}
+
+.wl-btn-primary:hover {
+    background: #c9a96e;
+}
+
+/* Grid */
+.wl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 15px;
+}
+
+/* Card */
+.wl-card {
+    background: #fff;
+    position: relative;
+    border: 1px solid #f0ede8;
+    transition: box-shadow 0.25s;
+}
+
+.wl-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+}
+
+/* Image */
+.wl-card-img-wrap {
+    display: block;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: #f5f3f0;
+    position: relative;
+}
+
+.wl-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.wl-card:hover .wl-card-img {
+    transform: scale(1.04);
+}
+
+/* Sale badge */
+.wl-sale-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #c9a96e;
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    font-weight: 600;
+}
+
+/* Remove btn */
+.wl-remove-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: background 0.2s;
+    z-index: 2;
+}
+
+.wl-remove-btn svg {
+    width: 14px;
+    height: 14px;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.wl-remove-btn:hover {
+    background: #fff0f0;
+}
+
+.wl-remove-btn:hover svg {
+    color: #c0392b;
+}
+
+/* Card info */
+.wl-card-info {
+    padding: 16px;
+}
+
+.wl-card-brand {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #c9a96e;
+    margin: 0 0 4px;
+    text-transform: uppercase;
+}
+
+.wl-card-title {
+    display: block;
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #1a1a1a;
+    text-decoration: none;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.wl-card-title:hover {
+    color: #c9a96e;
+}
+
+/* Meta pills */
+.wl-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+    min-height: 0;
+}
+
+.wl-meta-pill {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    background: #f5f3f0;
+    color: #666;
+    border-radius: 2px;
+}
+
+/* Pricing */
+.wl-card-pricing {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.wl-old-price {
+    font-size: 13px;
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+.wl-new-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    letter-spacing: 0.02em;
+}
+
+/* Actions */
+.wl-card-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.wl-btn-add {
+    flex: 1;
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 11px 12px;
+    cursor: pointer;
+    transition: background 0.25s;
+}
+
+.wl-btn-add:hover {
+    background: #c9a96e;
+}
+
+.wl-btn-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #d4cfc8;
+    color: #1a1a1a;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 11px 16px;
+    text-decoration: none;
+    transition: all 0.25s;
+    white-space: nowrap;
+}
+
+.wl-btn-view:hover {
+    border-color: #c9a96e;
+    color: #c9a96e;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .wl-page {
+        padding: 24px 0 60px;
+    }
+
+    .wl-container {
+        padding: 0 16px;
+    }
+
+    .wl-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .wl-card-info {
+        padding: 12px;
+    }
+
+    .wl-card-title {
+        font-size: 14px;
+    }
+
+    .wl-btn-add,
+    .wl-btn-view {
+        font-size: 9px;
+        padding: 9px 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .wl-grid {
+        grid-template-columns: 1fr;
+    }
+}

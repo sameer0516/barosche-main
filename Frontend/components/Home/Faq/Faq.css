@@ -1,0 +1,302 @@
+.reviews-section {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0px 24px;
+  color: #1a1a1a;
+  box-sizing: border-box;
+}
+
+/* Updated Heading Styling */
+.reviews-heading {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 48px;
+}
+
+.slider-container-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.reviews-swiper {
+  width: 100%;
+  padding: 4px 2px;
+}
+
+/* Review Card - Split Layout Enhancements */
+.review-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  background-color: #ffffff;
+  height: 100%;
+  min-height: 250px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.review-image-wrapper {
+  flex: 0 0 45%;
+  /* Image takes up ~45% of the card width */
+}
+
+.review-image-wrapper img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/4;
+  /* Keeps a nice portrait ratio like the image */
+  object-fit: cover;
+  display: block;
+}
+
+.review-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 12px;
+}
+
+.review-text {
+  margin: 0 0 16px 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+
+.reviewer-name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+}
+
+.feature-item img {
+  width: 12%;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #cccccc;
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.slider-arrow:hover {
+  color: #1a1a1a;
+}
+
+.left-arrow,
+.custom-prev {
+  left: 0px;
+}
+
+.right-arrow,
+.custom-next {
+  right: 0px;
+}
+
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  margin-bottom: 56px;
+  width: 100%;
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+  background-color: #d4d4d4;
+  opacity: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 !important;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: #000000;
+  transform: scale(1.15);
+}
+
+.features-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 auto 56px auto;
+  text-align: center;
+  gap: 32px;
+}
+
+.feature-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+  color: #111111;
+}
+
+.feature-item p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+  color: #222222;
+  line-height: 1.4;
+}
+
+/* Accordion Engine Styling Fixes */
+.accordion-container {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.accordion-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 18px 24px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #222222;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.accordion-icon {
+  font-size: 9px;
+  color: #718096;
+  margin-right: 14px;
+}
+
+.accordion-content {
+  padding: 12px 24px 28px 24px;
+  border-top: 1px solid #e2e8f0;
+  color: #444444;
+}
+
+.accordion-content-title {
+  font-size: 30px;
+  color: #111111;
+  font-weight: 600;
+  margin: 16px 0 10px 0;
+}
+
+.accordion-content-text {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #4a5568;
+}
+
+/* FAQ Inner Grid Layout */
+.faq-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  text-align: left;
+}
+
+.faq-item {
+  border-bottom: 1px solid #f0f4f8;
+  padding-bottom: 16px;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.faq-question {
+  margin: 0 0 8px 0;
+  font-size: 30px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.faq-answer {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+/* Fully Responsive Breakpoint Adjustments */
+@media (max-width: 900px) {
+  .review-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .review-image-wrapper {
+    flex: none;
+    width: 100%;
+  }
+
+  .review-body {
+    padding-right: 0;
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-container-wrapper {
+    padding: 0;
+  }
+
+  .slider-arrow {
+    display: none !important;
+  }
+
+  .custom-pagination {
+    margin-bottom: 40px;
+  }
+
+  .features-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+}
