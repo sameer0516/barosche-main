@@ -1,0 +1,17 @@
+# Environment files
+.env
+.env.*
+**/.env
+**/.env.*
+
+# Node modules
+node_modules/
+**/node_modules/
+
+# Next.js
+.next/
+out/
+
+# Build
+build/
+dist/

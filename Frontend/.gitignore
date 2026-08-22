@@ -1,0 +1,62 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+
+
+
+Frontend
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_############
+NEXT_PUBLIC_API_URL=https://api.barosche.com
+NEXT_PUBLIC_GOOGLE_PAY_MERCHANT_ID=BCR2DN4TXXXXXXXX
+
+
+Backend
+PORT=5000
+
+MONGO_URI=mongodb+srv://barosche:Barosche%232026@cluster0.nnr8bkx.mongodb.net/baroscheDB?retryWrites=true&w=majority&appName=Cluster0
+
+FRONTEND_URL=https://barosche.com
+STRIPE_SECRET_KEY=sk_live_##################
+SMTP_HOST=smtp.hostinger.com
+SMTP_PORT=465
+SMTP_USER=admin@barosche.com
+SMTP_PASS="Nirvana@#9166"

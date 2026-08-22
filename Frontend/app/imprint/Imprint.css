@@ -1,0 +1,27 @@
+.Imprint-container {
+    padding: 30px 0px;
+    width: 1500px;
+}
+
+.Imprint {
+    padding-top: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Imprint-title {
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 40px;
+}
+
+.Imprint-input span {
+    color: black;
+}
+
+.Imprint-input {
+    color: #505050e5;
+    font-size: 23px;
+    padding: 4px 0px;
+}

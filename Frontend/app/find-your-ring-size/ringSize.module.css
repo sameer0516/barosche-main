@@ -1,0 +1,136 @@
+.wrapper {
+  padding: 10rem 3rem;
+}
+
+.RingSize {
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  background-color: #1a1a1a;
+  justify-content: center;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem;
+}
+
+.tableContainer {
+   overflow-x: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 480px;
+}
+
+.table thead tr {
+  border-bottom: 1.5px solid #d0d0d0;
+}
+
+.table th {
+  font-size: 20px;
+  border: 0.5px solid #e8e8e8;
+  font-weight: 400;
+  color: #242323;
+  text-align: center;
+  padding: 10px 12px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.table td {
+  text-align: center;
+  padding: 13px 12px;
+  font-size: 18px;
+  color: #1a1a1a;
+  border: 0.5px solid #e8e8e8;
+}
+
+.table td:first-child {
+  font-weight: 500;
+}
+
+.table tbody tr:hover td {
+  background-color: #f8f6f1;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    padding: 6rem 0rem;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+    margin: 0 0 1.5rem;
+  }
+
+  .table th {
+    font-size: 15px;
+  }
+
+  .table td {
+    font-size: 15px;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  .wrapper {
+    padding: 6rem 0rem;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+    margin: 0 0 1.5rem;
+  }
+
+  .table th {
+    font-size: 15px;
+  }
+
+  .table td {
+    font-size: 15px;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .wrapper {
+    padding: 6rem 0rem;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+    margin: 0 0 1.5rem;
+  }
+
+  .table th {
+    font-size: 15px;
+  }
+
+  .table td {
+    font-size: 15px;
+  }
+
+}

@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.services-container {
+    font-family: 'Poppins', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    color: #2d3748;
+    line-height: 1.8;
+}
+
+/* Header Styling */
+.services-main-header {
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 25px;
+}
+
+.services-main-header h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a202c;
+}
+
+/* Sections Global Headers */
+.services-container h2 {
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: #1a202c;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.services-container h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.services-container p {
+    font-size: 20px;
+    color: #4a5568;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+/* Top Intro Grid */
+.services-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.intro-card {
+    padding: 10px 0;
+}
+
+/* Content Details Blocks */
+.services-detail-section {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.detail-block {
+    border-bottom: 1px solid #edf2f7;
+    padding-bottom: 40px;
+}
+
+/* Internal Feature Subgrids */
+.sub-features-grid,
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+    background-color: #f8fafc;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+/* Process / Step Section */
+.process-section {
+    margin-bottom: 60px;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.step-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 6px -1px #0000000d;
+}
+
+.step-num {
+    display: inline-block;
+    background: #1a202c;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.order-online-section {
+    margin-bottom: 60px;
+}
+
+.faq-section {
+    margin-top: 80px;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.faq-item {
+    border: none;
+    border-bottom: 1px solid #e2e8f0;
+    background: transparent;
+    padding: 18px 4px;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    margin: 0 0 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #1a202c;
+}
+
+.faq-answer {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #4a5568;
+    text-align: left;
+}
+
+@media (max-width: 1024px) {
+
+    .sub-features-grid,
+    .why-grid,
+    .steps-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .services-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-container {
+        padding: 30px 15px;
+    }
+
+    .services-main-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .services-container h2 {
+        font-size: 1.35rem;
+    }
+
+    .faq-question {
+        font-size: 16px;
+    }
+
+    .faq-answer {
+        font-size: 14.5px;
+    }
+}
+
+.accordion-section {
+    max-width: 1160px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.accordion-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #ffffff;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accordion-item.open {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.03);
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fafafa;
+    border: none;
+    cursor: pointer;
+    padding: 20px 25px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-size: 21px;
+    font-weight: 500;
+    color: #1a202c;
+}
+
+.accordion-item.open .accordion-header {
+    background: #ffffff;
+}
+
+.accordion-arrow {
+    display: inline-block;
+    font-size: 1rem;
+    color: #718096;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.open .accordion-arrow {
+    transform: rotate(90deg);
+}
+
+.accordion-title {
+    flex: 1;
+}
+
+/* Collapsible panel animation */
+.accordion-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+    border-top: 0px solid #edf2f7;
+}
+
+.accordion-item.open .accordion-panel {
+    grid-template-rows: 1fr;
+    border-top: 1px solid #edf2f7;
+}
+
+.accordion-panel-inner {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.accordion-item.open .accordion-panel-inner {
+    padding: 20px 25px 30px;
+}
+
+.fine-jewellery-content h2 {
+    font-size: 1.4rem;
+    margin: 22px 0 10px;
+}
+
+.fine-jewellery-content h2:first-child {
+    margin-top: 4px;
+}
+
+.fine-jewellery-content h3 {
+    font-size: 1.05rem;
+    margin: 16px 0 8px;
+}
+
+.fine-jewellery-content h4.fj-subheading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 14px 0 6px;
+}
+
+.fine-jewellery-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #4a5568;
+    margin: 0 0 10px;
+    text-align: left;
+}
+
+.fine-jewellery-content ul {
+    margin: 0 0 12px;
+    padding-left: 20px;
+}
+
+.fine-jewellery-content ul li {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 4px;
+}
+
+.fine-jewellery-content a {
+    color: blue;
+    text-decoration: underline;
+}
+
+.fine-jewellery-content strong {
+    font-weight: 600;
+    color: #1a202c;
+}
+
+@media (max-width: 600px) {
+    .accordion-header {
+        font-size: 17px;
+        padding: 15px 18px;
+    }
+
+    .accordion-item.open .accordion-panel-inner {
+        padding: 15px 18px 22px;
+    }
+
+    .fine-jewellery-content h2 {
+        font-size: 1.15rem;
+    }
+
+    .fine-jewellery-content p,
+    .fine-jewellery-content ul li {
+        font-size: 14.5px;
+    }
+}

@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rokkitt", Sans-serif;
+  
+}
+
+body {
+  font-family: var(--font-rokkitt), sans-serif;
+  
+}
+
+.paypal-button-container {
+  width: 100%;
+}
+
+p.promo-text {
+    padding-bottom: 15px;
+}
+
+body,
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
