@@ -47,7 +47,7 @@ const DEFAULT_UI = {
     priceHighLow: "Price: High to Low",
     newest: "Newest",
     filtersText: "Filters",
-    everydayJewellery: "Everyday Wear Jewellery",
+    everydayJewellery: "Pendants Jewellery",
     faq: "Frequently Asked Questions",
     retry: "Retry",
     gridView: "Grid view",
@@ -59,7 +59,7 @@ const DEFAULT_UI = {
     checkConsole: "Check browser console (F12) for API response.",
     showingOf: "Showing",
     showingResults: "results",
-    pageTitle: "Lightweight Daily Wear Fine Jewellery for Everyday Style",
+    pageTitle: "Pendants Jewellery – Everyday Elegant Gemstone & Minimal Designs",
     priceOnRequest: "Price on request",
     outOfStock: "Out of Stock",
 };
@@ -369,12 +369,19 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                             <img
                                 src={getImgSrc(images[activeImg])}
                                 alt={product.title || product.name}
+                                width="600"
+                                height="600"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                 onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                             />
                         ) : (
-                            <img src="/placeholder.jpg" alt="placeholder"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img
+                                src="/placeholder.jpg"
+                                alt="placeholder"
+                                width="600"
+                                height="600"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
                         )}
                     </div>
                     {images.length > 1 && (
@@ -393,6 +400,8 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                     <img
                                         src={getImgSrc(img)}
                                         alt={`view ${i + 1}`}
+                                        width="54"
+                                        height="54"
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                     />
@@ -659,6 +668,8 @@ function ProductCard({ p, wishlist, toggleWishlist, currency, ui, onQuickView, o
                     <img
                         src={currentItem ? getImgSrc(currentItem.src) : '/placeholder.jpg'}
                         alt={p.title}
+                        width="400"
+                        height="480"
                         className="jw-card-img"
                         loading="lazy"
                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}

@@ -10,6 +10,11 @@
     justify-content: center;
 }
 
+#retuen-section {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .Imprint-title {
     text-align: center;
     font-size: 35px;

@@ -385,21 +385,14 @@ function RatingStars({ rating = 4.8, count = 124, T }) {
     );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   MOBILE SLIDER — auto-advance logic:
-   - Image slides advance after a fixed 3.5s timer (as before).
-   - Video slides ONLY advance once the video has finished playing
-     (the 'ended' event), not on a timer. A safety fallback timer
-     is kept in case a video fails to load/play so the slider never
-     gets stuck.
-═══════════════════════════════════════════════════════════════ */
+
 function MobileSlider({ media, getImgSrc, productName, selectedImageIndex, setSelectedImageIndex, onImageClick }) {
-    const sliderRef        = useRef(null);
-    const touchStartX      = useRef(null);
-    const touchStartY      = useRef(null);
-    const imageTimerRef    = useRef(null);
+    const sliderRef = useRef(null);
+    const touchStartX = useRef(null);
+    const touchStartY = useRef(null);
+    const imageTimerRef = useRef(null);
     const videoFallbackRef = useRef(null);
-    const videoRefs        = useRef([]);
+    const videoRefs = useRef([]);
 
     const goToSlide = useCallback((idx) => {
         const clamped = Math.max(0, Math.min(idx, media.length - 1));
@@ -494,6 +487,8 @@ function MobileSlider({ media, getImgSrc, productName, selectedImageIndex, setSe
                         ) : (
                             <img src={getImgSrc(item.src)} alt={`${productName} view ${idx + 1}`}
                                 loading={idx === 0 ? 'eager' : 'lazy'}
+                                width={400}
+                                height={533}
                                 onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                 onClick={() => onImageClick && onImageClick(idx)}
                                 style={{ cursor: 'zoom-in' }} />
@@ -611,6 +606,8 @@ function Lightbox({ media, getImgSrc, productName, startIndex, onClose }) {
                         src={getImgSrc(currentItem.src)}
                         alt={`${productName} view ${index + 1}`}
                         className="jd-lightbox-img"
+                        width={800}
+                        height={1000}
                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                         style={{ maxWidth: '100%', maxHeight: '88vh', objectFit: 'contain', borderRadius: 4 }}
                     />
@@ -709,7 +706,7 @@ function InstallmentSection({ price, T, currency }) {
                 </div>
                 <div className="payment-card">
                     <div className="logo-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="paypal-logo" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="paypal-logo" width={40} height={24} />
                     </div>
                     <div className="info-box">
                         <p>{T.paypalDesc} <strong>{paypalInstallment}</strong> {T.paypalOr}</p>
@@ -720,11 +717,13 @@ function InstallmentSection({ price, T, currency }) {
     );
 }
 
-export default function EarringDetailClient({ slug }) {
+
+export default function EarringDetailClient({ slug, initialProduct = null, initialRelated = [] }) {
     const { strings: T, currency, status: tStatus, languageCode } = useTranslationAndCurrency();
-    const [product, setProduct] = useState(null);
-    const [relatedProducts, setRelatedProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+
+    const [product, setProduct] = useState(initialProduct);
+    const [relatedProducts, setRelatedProducts] = useState(initialRelated);
+    const [loading, setLoading] = useState(!initialProduct);
     const [error, setError] = useState(null);
     const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
     const [qty, setQty] = useState(1);
@@ -751,10 +750,13 @@ export default function EarringDetailClient({ slug }) {
     }, []);
 
     // ── Fetch product ──
+
     useEffect(() => {
         if (!slug) return;
         const fetchProduct = async () => {
-            setLoading(true);
+            if (!initialProduct || initialProduct.slug !== slug) {
+                setLoading(true);
+            }
             setError(null);
             try {
                 const res = await fetch(`${API_BASE}/api/products/${slug}`);
@@ -980,9 +982,9 @@ export default function EarringDetailClient({ slug }) {
     const newPrice = activeVariant.newPrice ?? product.newPrice ?? product.price ?? 0;
     const isSale = activeVariant.isSale ?? product.isSale ?? false;
     const variantQtyRaw = activeVariant.quantity;
-    const variantQty    = variantQtyRaw !== undefined ? Number(variantQtyRaw) : null;
+    const variantQty = variantQtyRaw !== undefined ? Number(variantQtyRaw) : null;
     const inStock = (variantQty !== null ? variantQty > 0 : true)
-    && (activeVariant.inStock ?? product.inStock ?? true) !== false;
+        && (activeVariant.inStock ?? product.inStock ?? true) !== false;
     const displayTitle = translatedProduct?.title || activeVariant.title || product.title || product.name;
     const displayDescription = translatedProduct?.description || activeVariant.description || product.description || '';
     const displayMaterials = translatedProduct?.materials?.length > 0
@@ -1136,6 +1138,8 @@ export default function EarringDetailClient({ slug }) {
                                                         {vImg && (
                                                             <div className="jd-variant-card-img">
                                                                 <img src={getImgSrc(vImg)} alt={v.name || `Variant ${idx + 1}`}
+                                                                    width={84}
+                                                                    height={84}
                                                                     onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                                             </div>
                                                         )}
@@ -1234,6 +1238,8 @@ export default function EarringDetailClient({ slug }) {
                                                             <img src={getImgSrc(item.src)}
                                                                 alt={`${displayTitle} view ${globalIdx + 1}`}
                                                                 loading={globalIdx < 2 ? 'eager' : 'lazy'}
+                                                                width={800}
+                                                                height={1000}
                                                                 onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                                         )}
                                                     </div>
@@ -1287,6 +1293,8 @@ export default function EarringDetailClient({ slug }) {
                                                             {vImg && (
                                                                 <div className="jd-variant-card-img">
                                                                     <img src={getImgSrc(vImg)} alt={v.name || `Variant ${idx + 1}`}
+                                                                        width={84}
+                                                                        height={84}
                                                                         onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                                                 </div>
                                                             )}
@@ -1361,6 +1369,8 @@ export default function EarringDetailClient({ slug }) {
                                     <div className="jd-related-img">
                                         <img src={getRelatedImgSrc(rp)} alt={rp.title || rp.name}
                                             loading="lazy"
+                                            width={300}
+                                            height={375}
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                         {(getFirstVariant(rp).isSale || rp.isSale) && (
                                             <span className="jd-related-sale-badge">Sale</span>

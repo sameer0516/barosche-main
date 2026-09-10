@@ -70,13 +70,12 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// Naya blog ho ya edited blog, "placeholder" ke liye seedha 404 nahi dena —
+// isse client (BlogClient) ko real URL slug padhkar fresh data fetch karne ka
+// mauka nahi milta. Ab hamesha BlogClient render karo; agar sach me blog
+// exist nahi karta to woh khud client-side notFound() dega.
 export default async function BlogSlugPage({ params }) {
   const { slug } = await params;
-
-  if (slug === "placeholder") {
-    return notFound();
-  }
-
   const blog = await getBlog(slug);
 
   return <BlogClient initialBlog={blog} slug={slug} />;

@@ -104,35 +104,35 @@ function categoryMatches(productCategory, targetCategory) {
 export async function generateCategoryStaticParams(category) {
     try {
         const products = await fetchAllProductsWithRetry();
- 
+
         const seenSlugs = new Set();
-        const params = [];
- 
+        const params = [{ slug: "placeholder" }]; 
+        seenSlugs.add("placeholder");
+
         for (const product of products) {
             if (!product.slug) continue;
             if (!categoryMatches(product.category, category)) continue;
             if (seenSlugs.has(product.slug)) continue;
- 
+
             seenSlugs.add(product.slug);
             params.push({ slug: product.slug });
         }
- 
-        if (params.length === 0) {
+
+        if (params.length === 1) {
             console.warn(
                 `[staticParamsHelper] No products matched category "${category}". ` +
                 `Check the actual "category" values stored in MongoDB for a mismatch ` +
                 `(casing, extra spaces, or a different spelling entirely).`
             );
-            return [{ slug: "placeholder" }];
         }
- 
+
         console.log(
-            `[staticParamsHelper] Generated ${params.length} static params for category "${category}"`
+            `[staticParamsHelper] Generated ${params.length} static params (incl. placeholder) for category "${category}"`
         );
         return params;
     } catch (err) {
         console.error(
-            `[staticParamsHelper] FALLING BACK to placeholder for category "${category}". ` +
+            `[staticParamsHelper] FALLING BACK to placeholder-only for category "${category}". ` +
             `Reason: ${err.message}. ` +
             `THIS MEANS REAL PRODUCT PAGES FOR THIS CATEGORY WILL 404 UNTIL THE NEXT SUCCESSFUL BUILD.`
         );

@@ -44,10 +44,10 @@ export async function generateMetadata({ params }) {
     const rawImg =
         product.images && product.images.length > 0
             ? product.images[0]
-            : product.img || '';
+            : product.variants?.[0]?.images?.[0] || product.img || '';
     const imageUrl = rawImg.startsWith('http') ? rawImg : `${API_BASE}${rawImg}`;
 
-    const title = `${product.title || product.name} | Barosche Rings`;
+    const title = `${product.title || product.name} | Barosche Earrings`;
     const description = (product.description || '').slice(0, 160);
 
     return {
@@ -55,10 +55,10 @@ export async function generateMetadata({ params }) {
         description,
         keywords: [
             product.category,
-            'rings',
+            'earrings',
             'barosche',
             'fine jewellery',
-            'statement rings',
+            'statement earrings',
             'handcrafted jewellery',
         ]
             .filter(Boolean)
@@ -107,7 +107,15 @@ function ProductJsonLd({ product }) {
 
     const toAbsolute = (img) => (img && img.startsWith('http') ? img : `${API_BASE}${img || ''}`);
 
-    const allImages = (product.images && product.images.length > 0 ? product.images : [product.img])
+    const variantImages = product.variants?.[0]?.images || [];
+
+    const allImages = (
+        product.images && product.images.length > 0
+            ? product.images
+            : variantImages.length > 0
+                ? variantImages
+                : [product.img]
+    )
         .filter(Boolean)
         .map(toAbsolute);
 
@@ -167,7 +175,7 @@ function ProductJsonLd({ product }) {
                 ...(product.color ? { "color": product.color } : {}),
                 ...(product.size ? { "size": product.size } : {}),
                 "category": `Jewellery > ${product.category || CATEGORY_NAME}`,
-                ...(materials.length > 0 ? { "material": materials } : {}),
+                ...(materials.length > 0 ? { "material": materials.join(', ') } : {}),
                 "brand": {
                     "@type": "Brand",
                     "name": "Barosche",

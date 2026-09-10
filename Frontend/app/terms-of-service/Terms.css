@@ -1,5 +1,6 @@
 .Terms {
     padding: 100px 140px;
+    margin-top: 50px;
 }
 
 .Terms-title {
@@ -42,18 +43,18 @@
 
 @media (max-width: 768px) {
     .Terms {
-        padding: 10px 20px;
+        padding: 70px 20px;
     }
 }
 
 @media (max-width: 576px) {
     .Terms {
-        padding: 10px 20px;
+        padding: 60px 20px;
     }
 }
 
 @media (max-width: 476px) {
     .Terms {
-        padding: 10px 20px;
+        padding: 70px 20px;
     }
 }

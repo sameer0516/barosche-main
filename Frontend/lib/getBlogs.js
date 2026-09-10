@@ -39,7 +39,7 @@ export async function fetchAllBlogsOnce() {
       }
     }
 
-    console.error("❌ [blogs] Saari retries fail ho gayi:", lastError?.message);
+    console.error("❌ [Blogs] All Retries Failed:", lastError?.message);
     return [];
   })();
 
@@ -52,7 +52,7 @@ export async function getBlog(slug) {
   const blogs = await fetchAllBlogsOnce();
 
   if (blogs.length === 0) {
-    console.log(`⚠️ [blogs/${slug}] Blogs list hi khaali aayi`);
+    console.log(`⚠️ [blogs/${slug}] The blogs list remained empty.`);
     return null;
   }
 
@@ -61,7 +61,7 @@ export async function getBlog(slug) {
   if (!found) {
     console.log(`⚠️ [blogs/${slug}] Is slug ka blog list me nahi mila`);
   } else {
-    console.log(` [blogs/${slug}] Blog mil gaya:`, found.title);
+    console.log(` [blogs/${slug}] found the blog:`, found.title);
   }
 
   return found || null;

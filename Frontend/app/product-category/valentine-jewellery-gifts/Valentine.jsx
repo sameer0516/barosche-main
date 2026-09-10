@@ -47,7 +47,7 @@ const DEFAULT_UI = {
     priceHighLow: "Price: High to Low",
     newest: "Newest",
     filtersText: "Filters",
-    fashionJewellery: "Luxury Jewellery Gifts",
+    fashionJewellery: "Valentine Jewellery Gifts ",
     faq: "Frequently Asked Questions",
     retry: "Retry",
     gridView: "Grid view",

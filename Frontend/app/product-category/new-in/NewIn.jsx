@@ -47,7 +47,7 @@ const DEFAULT_UI = {
     priceHighLow: "Price: High to Low",
     newest: "Newest",
     filtersText: "Filters",
-    fashionJewellery: "Luxury Jewellery Gifts",
+    fashionJewellery: "Latest & Trending Fashion Jewellery",
     faq: "Frequently Asked Questions",
     retry: "Retry",
     gridView: "Grid view",
@@ -201,7 +201,7 @@ const fashionJewelleryContent = [
     { type: 'h', text: "Explore Latest Jewellery Designs for Modern Styling" },
     { type: 'p', text: "Our collection showcases the <strong>latest jewellery designs</strong> inspired by evolving global fashion trends and modern aesthetics. Each piece is thoughtfully created to bring freshness, elegance, and versatility to your look while maintaining long-lasting appeal and timeless wearability." },
     { type: 'p', text: "Designed with attention to detail, craftsmanship, and finish, these jewellery pieces are made to complement a wide range of personal styles. Whether you prefer subtle minimalism or bold statement looks, our collection ensures that you always find something that matches your fashion preferences." },
-    {type:"p",text:"<strong>These designs are perfect for:</stong>"},
+    { type: "p", text: "<strong>These designs are perfect for:</stong>" },
     { type: 'p', text: "• Everyday modern styling<br/>• Office and professional wear<br/>• Casual and festive occasions<br/>• Minimalist and statement looks" },
     { type: 'p', text: "With a strong focus on precision and refined detailing, every piece enhances your personality with effortless charm. Our <strong>latest jewellery designs</strong> are created to help you stay stylish, confident, and fashion-forward in every moment of your life." },
     { type: 'h', text: "Discover Jewellery That Defines Modern Fashion" },
@@ -211,20 +211,20 @@ const fashionJewelleryContent = [
     { type: 'h', text: "Designed for Modern Women with Evolving Style" },
     { type: 'p', text: "Today's <strong>trending jewellery for women</strong> is all about simplicity, elegance, and personal expression. Our collection is created for women who want jewellery that adapts to their lifestyle rather than limiting it." },
     { type: 'p', text: "From minimal everyday designs to bold fashion statements, our jewellery supports every mood and moment. Whether you prefer subtle elegance or expressive styling, our <strong>new fashion jewellery</strong> ensures that you always have the perfect piece to complete your look." },
-    {type:"p",text:"<strong>This modern approach to jewellery design focuses on:</stong>"},
+    { type: "p", text: "<strong>This modern approach to jewellery design focuses on:</stong>" },
     { type: 'p', text: "• Everyday comfort and wearability<br/>• Fashion-forward aesthetics<br/>• Easy styling with multiple outfits<br/>• Long-lasting design appeal" },
     { type: 'p', text: "Each piece becomes a reflection of your personality and fashion identity." },
     { type: 'h', text: "New In Jewellery Collection – Fresh Styles for Every Occasion" },
     { type: 'p', text: "Our <strong>new in jewellery collection</strong> is regularly updated with the latest arrivals, ensuring you always have access to fresh, modern, and trending designs. Each piece is carefully selected to reflect current fashion preferences while maintaining timeless appeal and long-term usability." },
     { type: 'p', text: "Designed for today's dynamic lifestyles, this collection brings together versatility and elegance in every design. Whether you prefer subtle everyday pieces or bold statement accessories, our range offers something for every mood, outfit, and occasion." },
     { type: 'p', text: "This collection includes a variety of styles such as <strong>rings, earrings, pendants, and bracelets</strong>, thoughtfully designed for both minimalist and bold styling preferences. Each piece is crafted to offer comfort, durability, and effortless styling, making it suitable for daily wear as well as special events." },
-    {type:"p",text:"<strong>Stay updated with:</stong>"},
+    { type: "p", text: "<strong>Stay updated with:</stong>" },
     { type: 'p', text: "• Newly launched jewellery designs<br/>• Seasonal fashion trends<br/>• Modern everyday essentials<br/>• Elegant occasion-ready pieces" },
     { type: 'p', text: "With a continuous focus on innovation and style, our <strong>new in jewellery</strong> range ensures that your collection always feels fresh, relevant, and fashion-forward." },
     { type: 'h', text: "Trending Jewellery for Women – Stay Fashion Forward" },
     { type: 'p', text: "Explore <strong>trending jewellery for women</strong> that is thoughtfully designed to enhance both everyday styling and special occasion looks. Each piece is inspired by current global fashion movements, helping you stay stylish, confident, and effortlessly modern in your appearance." },
     { type: 'p', text: "Our trending collection focuses on versatility and elegance, ensuring that every design can be styled in multiple ways. Whether you're dressing for work, casual outings, or festive events, these pieces adapt seamlessly to your wardrobe and personal style." },
-    {type:"p",text:"<strong>Our trending collection includes:</stong>"},
+    { type: "p", text: "<strong>Our trending collection includes:</stong>" },
     { type: 'p', text: "• Minimalist jewellery for daily wear<br/>• Elegant statement accessories<br/>• Modern layered designs<br/>• Versatile fashion jewellery pieces" },
     { type: 'p', text: "Each design is created to allow easy mixing, matching, and layering, giving you complete freedom to express your personal fashion preferences. With a strong focus on comfort, quality, and contemporary appeal, our <strong>trending jewellery for women</strong> ensures you always stay ahead in style." },
     { type: 'h', text: "Fresh Arrivals That Keep Your Style Updated" },
@@ -233,7 +233,7 @@ const fashionJewelleryContent = [
     { type: 'p', text: "Whether you're looking for minimalist pieces, statement accessories, or everyday essentials, our new arrivals offer something unique for every style preference." },
     { type: 'h', text: "Jewellery for Every Style, Mood & Occasion" },
     { type: 'p', text: "Our collection is designed to support every lifestyle need with ease. From subtle everyday pieces to bold occasion-ready designs, the <strong>latest jewellery designs</strong> in our store are made for all moments of life." },
-    {type:"p",text:"<strong>You can style our jewellery for:</stong>"},
+    { type: "p", text: "<strong>You can style our jewellery for:</stong>" },
     { type: 'p', text: "• Daily wear and casual outings<br/>• Office and professional environments<br/>• Parties and festive celebrations<br/>• Weddings and special occasions<br/>• Modern fashion layering and styling" },
     { type: 'p', text: "This versatility makes our <strong>new fashion jewellery</strong> a perfect addition to any wardrobe, giving you unlimited styling possibilities." },
     { type: 'h', text: "New Fashion Jewellery for Everyday Elegance" },
@@ -243,19 +243,19 @@ const fashionJewelleryContent = [
     { type: 'h', text: "Why Choose Our New In Jewellery Collection?" },
     { type: 'p', text: "Our <strong>new in jewellery</strong> category is thoughtfully designed to keep your style fresh, modern, and always relevant. We focus on delivering jewellery that reflects the latest fashion direction while maintaining timeless elegance, making it easy for you to stay ahead in style without effort." },
     { type: 'p', text: "Every piece in this collection is carefully curated to balance aesthetics, comfort, and durability. From everyday essentials to statement designs, our jewellery is made to suit evolving fashion needs while offering long-lasting value and wearability." },
-    {type:"p",text:"<strong>We focus on delivering:</stong>"},
+    { type: "p", text: "<strong>We focus on delivering:</stong>" },
     { type: 'p', text: "• Regularly updated <strong>latest jewellery designs</strong> inspired by current trends<br/>• High-quality craftsmanship with refined finishing<br/>• Trend-driven yet timeless styling that never goes out of fashion<br/>• Versatile jewellery suitable for all occasions and outfits<br/>• Comfortable, lightweight, and long-lasting wear" },
     { type: 'p', text: "Each piece is carefully crafted to ensure it not only looks beautiful but also offers durability, versatility, and lasting value—making our <strong>new in jewellery collection</strong> a reliable choice for modern jewellery lovers." },
     { type: 'h', text: "Buy Latest Jewellery Online with Confidence" },
     { type: 'p', text: "We make it simple and secure to <strong>buy jewellery online</strong> with complete confidence. Our platform is designed to offer a smooth, transparent, and convenient shopping experience from start to finish." },
     { type: 'p', text: "Every product in our <strong>new in jewellery collection</strong> is presented with clear images, detailed descriptions, and accurate styling information to help you make the right choice." },
-    {type:"p",text:"<strong>We ensure:</stong>"},
+    { type: "p", text: "<strong>We ensure:</stong>" },
     { type: 'p', text: "• Safe and secure checkout experience<br/>• Easy browsing and product discovery<br/>• High-quality visuals for better selection<br/>• Fast and reliable delivery service<br/>• Customer-focused support experience" },
     { type: 'p', text: "This ensures that your online jewellery shopping journey is not only easy but also completely trustworthy and enjoyable." },
     { type: 'h', text: "Shop Latest Jewellery Online with Confidence" },
     { type: 'p', text: "Shopping for the latest <a href='/product-category/jewellery/' style='color: #007bff; text-decoration: underline;'>fine jewellery</a> designs has never been easier or more convenient. Our platform is designed to give you a seamless experience where you can effortlessly explore, compare, and buy jewellery online with complete confidence." },
     { type: 'p', text: "We focus on creating a smooth and user-friendly shopping journey that helps you find the perfect piece quickly and easily. From browsing new arrivals to completing your purchase, every step is optimized for clarity, convenience, and trust." },
-    {type:"p",text:"<strong>We ensure:</stong>"},
+    { type: "p", text: "<strong>We ensure:</stong>" },
     { type: 'p', text: "• Easy and intuitive browsing experience<br/>• Secure and safe checkout process<br/>• Detailed product descriptions for informed decisions<br/>• High-quality product visuals for clear understanding<br/>• Reliable and timely delivery service" },
     { type: 'p', text: "With a strong focus on customer satisfaction, we aim to make your jewellery shopping experience smooth, secure, and enjoyable. Whether you're searching for <strong>new in jewellery</strong>, <strong>trending jewellery for women</strong>, or timeless pieces, our platform ensures a trustworthy and effortless online shopping experience." }
 ];
@@ -383,10 +383,23 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                     controls
                                 />
                             ) : (
-                                <img src={`${API_BASE}${activeItem.src}`} alt={product.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                <img
+                                    src={`${API_BASE}${activeItem.src}`}
+                                    alt={product.title}
+                                    width="600"
+                                    height="600"
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+                                />
                             )
                         ) : (
-                            <img src="/placeholder.jpg" alt="placeholder" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img
+                                src="/placeholder.jpg"
+                                alt="placeholder"
+                                width="600"
+                                height="600"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
                         )}
                     </div>
                     {mediaList.length > 1 && (
@@ -412,7 +425,14 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                             </span>
                                         </>
                                     ) : (
-                                        <img src={`${API_BASE}${item.src}`} alt={`view ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                        <img
+                                            src={`${API_BASE}${item.src}`}
+                                            alt={`view ${i + 1}`}
+                                            width="54"
+                                            height="54"
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                            onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+                                        />
                                     )}
                                 </button>
                             ))}
@@ -584,6 +604,8 @@ function ProductCard({ p, wishlist, toggleWishlist, currency, ui, onQuickView })
                     <img
                         src={currentItem ? `${API_BASE}${currentItem.src}` : "/placeholder.jpg"}
                         alt={p.title}
+                        width="400"
+                        height="480"
                         className="jw-card-img"
                         loading="lazy"
                         onError={(e) => { e.target.src = "/placeholder.jpg"; }}
@@ -900,49 +922,49 @@ export default function NewIn() {
             </div>
             <Reviews />
 
-              <div className="jw-bottom-accordions">
-                        <AccordionItem title={ui.fashionJewellery}>
-                            <div className="jw-accordion-text">
-                                {translatedFashionContent.map((item, i) => {
-                                    if (item.type === 'h' || item.type === 'h2') {
-                                        return <h2 key={i} className="jw-accordion-heading" dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                    }
-                                    if (item.type === 'h3') {
-                                        return <h3 key={i} className="jw-accordion-subheading" dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                    }
-                                    if (item.type === 'h3link') {
-                                        return (
-                                            <h3 key={i} className="jw-accordion-subheading">
-                                                <Link href={item.href} style={{ color: '#007bff', textDecoration: 'underline' }}>
-                                                    <span dangerouslySetInnerHTML={{ __html: item.text }} />
-                                                </Link>
-                                            </h3>
-                                        );
-                                    }
-                                    if (item.type === 'h4') {
-                                        return <h4 key={i} className="jw-accordion-subsubheading" dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                    }
-                                    if (item.type === 'ul') {
-                                        return <ul key={i} className="jw-accordion-list" dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                    }
-                                    if (item.type === 'ol') {
-                                        return <ol key={i} className="jw-accordion-list" dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                    }
-                                    return <p key={i} dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                })}
-                            </div>
-                        </AccordionItem>
-                        <AccordionItem title={ui.faq}>
-                            <div className="jw-faq-list">
-                                {translatedFaq.map((item, i) => (
-                                    <div key={i} className="jw-faq-item">
-                                        <p className="jw-faq-q" dangerouslySetInnerHTML={{ __html: `${i + 1}. ${item.q}` }} />
-                                        <p className="jw-faq-a" dangerouslySetInnerHTML={{ __html: item.a }} />
-                                    </div>
-                                ))}
-                            </div>
-                        </AccordionItem>
+            <div className="jw-bottom-accordions">
+                <AccordionItem title={ui.fashionJewellery}>
+                    <div className="jw-accordion-text">
+                        {translatedFashionContent.map((item, i) => {
+                            if (item.type === 'h' || item.type === 'h2') {
+                                return <h2 key={i} className="jw-accordion-heading" dangerouslySetInnerHTML={{ __html: item.text }} />;
+                            }
+                            if (item.type === 'h3') {
+                                return <h3 key={i} className="jw-accordion-subheading" dangerouslySetInnerHTML={{ __html: item.text }} />;
+                            }
+                            if (item.type === 'h3link') {
+                                return (
+                                    <h3 key={i} className="jw-accordion-subheading">
+                                        <Link href={item.href} style={{ color: '#007bff', textDecoration: 'underline' }}>
+                                            <span dangerouslySetInnerHTML={{ __html: item.text }} />
+                                        </Link>
+                                    </h3>
+                                );
+                            }
+                            if (item.type === 'h4') {
+                                return <h4 key={i} className="jw-accordion-subsubheading" dangerouslySetInnerHTML={{ __html: item.text }} />;
+                            }
+                            if (item.type === 'ul') {
+                                return <ul key={i} className="jw-accordion-list" dangerouslySetInnerHTML={{ __html: item.text }} />;
+                            }
+                            if (item.type === 'ol') {
+                                return <ol key={i} className="jw-accordion-list" dangerouslySetInnerHTML={{ __html: item.text }} />;
+                            }
+                            return <p key={i} dangerouslySetInnerHTML={{ __html: item.text }} />;
+                        })}
                     </div>
+                </AccordionItem>
+                <AccordionItem title={ui.faq}>
+                    <div className="jw-faq-list">
+                        {translatedFaq.map((item, i) => (
+                            <div key={i} className="jw-faq-item">
+                                <p className="jw-faq-q" dangerouslySetInnerHTML={{ __html: `${i + 1}. ${item.q}` }} />
+                                <p className="jw-faq-a" dangerouslySetInnerHTML={{ __html: item.a }} />
+                            </div>
+                        ))}
+                    </div>
+                </AccordionItem>
+            </div>
         </div>
     );
 }

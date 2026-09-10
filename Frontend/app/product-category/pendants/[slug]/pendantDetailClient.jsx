@@ -500,13 +500,15 @@ function MobileSlider({ media, getImgSrc, productName, isSale, selectedImageInde
                             />
                         ) : (
                             <img
-                                src={getImgSrc(item.src)}
-                                alt={`${productName} view ${idx + 1}`}
-                                loading={idx === 0 ? 'eager' : 'lazy'}
-                                onError={(e) => { e.target.src = '/placeholder.jpg'; }}
-                                onClick={() => onImageClick && onImageClick(idx)}
-                                style={{ cursor: 'zoom-in' }}
-                            />
+    src={getImgSrc(item.src)}
+    alt={`${productName} view ${idx + 1}`}
+    width="800"
+    height="1067"
+    loading={idx === 0 ? 'eager' : 'lazy'}
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+    onClick={() => onImageClick && onImageClick(idx)}
+    style={{ cursor: 'zoom-in' }}
+/>
                         )}
                     </div>
                 ))}
@@ -731,10 +733,12 @@ function InstallmentSection({ price, t, currency }) {
                 <div className="payment-card">
                     <div className="logo-box">
                         <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
-                            alt="PayPal"
-                            className="paypal-logo"
-                        />
+    src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+    alt="PayPal"
+    width="100"
+    height="30"
+    className="paypal-logo"
+/>
                     </div>
                     <div className="info-box">
                         <p>
@@ -1226,8 +1230,13 @@ export default function pendantDetailClient({ slug }) {
                                                     >
                                                         {vImg && (
                                                             <div className="jd-variant-card-img">
-                                                                <img src={getImgSrc(vImg)} alt={v.name || `Variant ${idx + 1}`}
-                                                                    onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                                                <img
+    src={getImgSrc(vImg)}
+    alt={v.name || `Variant ${idx + 1}`}
+    width="84"
+    height="84"
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                                                             </div>
                                                         )}
                                                         <span className="jd-variant-card-name">
@@ -1332,11 +1341,13 @@ export default function pendantDetailClient({ slug }) {
                                                             />
                                                         ) : (
                                                             <img
-                                                                src={getImgSrc(item.src)}
-                                                                alt={`${displayTitle} view ${globalIdx + 1}`}
-                                                                loading={globalIdx < 2 ? 'eager' : 'lazy'}
-                                                                onError={(e) => { e.target.src = '/placeholder.jpg'; }}
-                                                            />
+    src={getImgSrc(item.src)}
+    alt={`${displayTitle} view ${globalIdx + 1}`}
+    width="640"
+    height="800"
+    loading={globalIdx < 2 ? 'eager' : 'lazy'}
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                                                         )}
                                                     </div>
                                                 );
@@ -1393,8 +1404,13 @@ export default function pendantDetailClient({ slug }) {
                                                         >
                                                             {vImg && (
                                                                 <div className="jd-variant-card-img">
-                                                                    <img src={getImgSrc(vImg)} alt={v.name || `Variant ${idx + 1}`}
-                                                                        onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                                                    <img
+    src={getImgSrc(vImg)}
+    alt={v.name || `Variant ${idx + 1}`}
+    width="84"
+    height="84"
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                                                                 </div>
                                                             )}
                                                             <span className="jd-variant-card-name">
@@ -1474,11 +1490,13 @@ export default function pendantDetailClient({ slug }) {
                                 >
                                     <div className="jd-related-img">
                                         <img
-                                            src={getRelatedImgSrc(rp)}
-                                            alt={rp.title || rp.name}
-                                            loading="lazy"
-                                            onError={(e) => { e.target.src = '/placeholder.jpg'; }}
-                                        />
+    src={getRelatedImgSrc(rp)}
+    alt={rp.title || rp.name}
+    width="480"
+    height="640"
+    loading="lazy"
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                                         {(getFirstVariant(rp).isSale || rp.isSale) && (
                                             <span className="jd-related-sale-badge">{t.labels.sale}</span>
                                         )}

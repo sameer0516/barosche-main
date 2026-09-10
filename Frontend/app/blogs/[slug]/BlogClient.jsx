@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.barosche.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://barosche.com";
 
 function formatDate(dateStr) {
   if (!dateStr) return "";
@@ -21,10 +22,39 @@ function resolveImage(img) {
   if (!img) return "/placeholder.png";
   return img.startsWith("http") ? img : `${BACKEND_URL}${img}`;
 }
-  
+
 function stripUnderlineTags(text) {
   if (!text) return "";
   return text.replace(/<\/?u[^>]*>/gi, "");
+}
+
+// Placeholder shell page kisi bhi /blogs/<slug> ke liye serve ho sakta hai
+// (jab wo slug build time pe exist nahi karta tha). Isliye real slug hamesha
+// browser URL se padho, prop se nahi (prop "placeholder" ho sakta hai).
+function getSlugFromURL() {
+  if (typeof window === "undefined") return null;
+  const parts = window.location.pathname.split("/").filter(Boolean);
+  const idx = parts.indexOf("blogs");
+  if (idx !== -1 && parts[idx + 1]) {
+    return decodeURIComponent(parts[idx + 1]);
+  }
+  return null;
+}
+
+// Placeholder page ka baked-in canonical hamesha "/blogs/placeholder/" hota
+// hai (build time metadata se). Chunki asli slug wale blogs static export me
+// isi placeholder HTML ke through serve hote hain, humein canonical tag ko
+// runtime par real slug ke hisaab se manually fix karna padta hai — warna
+// JS-rendering crawlers (Screaming Frog etc.) ko galat canonical milta hai.
+function updateCanonicalTag(url) {
+  if (typeof document === "undefined" || !url) return;
+  let link = document.querySelector('link[rel="canonical"]');
+  if (!link) {
+    link = document.createElement("link");
+    link.setAttribute("rel", "canonical");
+    document.head.appendChild(link);
+  }
+  link.setAttribute("href", url);
 }
 
 const DEFAULT_UI_TEXTS = {
@@ -32,10 +62,6 @@ const DEFAULT_UI_TEXTS = {
   backText: "← Back to Blogs",
 };
 
-// 🆕 FIX: ReactMarkdown ke liye custom img renderer.
-// Markdown se aane wale images ka original size pata nahi hota, isliye
-// ek fixed width/height attribute de rahe hain (CLS calculation ke liye)
-// aur CSS se ise responsive bana rahe hain (width: 100%, height: auto).
 function MarkdownImage({ src, alt, ...props }) {
   const resolvedSrc = src && !src.startsWith("http") ? `${BACKEND_URL}${src}` : src;
   return (
@@ -59,24 +85,42 @@ export default function BlogClient({ initialBlog = null, slug = null }) {
 
   const skippedInitialFetch = useRef(false);
 
+  // Hamesha fresh data fetch karo — chahe initialBlog mila ho ya na mila ho.
+  // Isse edit turant reflect hota hai, aur naye blog (placeholder shell)
+  // bhi apna asli slug URL se padhkar load ho jate hain.
   useEffect(() => {
-    async function fetchFallback() {
-      if (initialBlog || !slug || slug === "placeholder") {
+    async function fetchFresh() {
+      const realSlug = getSlugFromURL() || slug;
+
+      // Real slug pata chalte hi canonical tag ko turant fix kar do —
+      // chahe fetch fail ho jaaye, canonical galat (placeholder) nahi rehna chahiye.
+      if (realSlug && realSlug !== "placeholder") {
+        updateCanonicalTag(`${SITE_URL}/blogs/${realSlug}/`);
+      }
+
+      if (!realSlug || realSlug === "placeholder") {
+        if (!initialBlog) setStatus("notfound");
         return;
       }
+
       try {
-        const res = await fetch(`${BACKEND_URL}/api/blogs/${slug}`);
+        const res = await fetch(`${BACKEND_URL}/api/blogs/${realSlug}`);
         if (!res.ok) throw new Error("Blog not found");
         const data = await res.json();
+        if (!data || data.message === "Blog not found") {
+          if (!initialBlog) setStatus("notfound");
+          return;
+        }
         setRawBlog(data);
         setStatus("translating");
       } catch (err) {
-        console.error("Blog client fallback fetch error:", err);
-        setStatus("notfound");
+        console.error("Blog client fetch error:", err);
+        if (!initialBlog) setStatus("notfound");
       }
     }
-    fetchFallback();
-  }, [slug, initialBlog]);
+    fetchFresh();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // STEP 2: Translation
   useEffect(() => {
@@ -201,7 +245,8 @@ export default function BlogClient({ initialBlog = null, slug = null }) {
         <Image
           src={resolveImage(activeContent.image)}
           alt={activeContent.altTag || activeContent.title}
-          fill
+          width={1200}
+          height={500}
           className="blog-cover-image"
           unoptimized
           priority

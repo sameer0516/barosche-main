@@ -887,13 +887,13 @@ function ProductDetail({ product, onClose, onEdit, onDelete }) {
           <div className="detail-grid">
             <div className="main-img-wrap-container">
               <div className="main-img-wrap">
-               {variant.images?.length > 0 && <img src={`https://api.barosche.com${variant.images[imgIdx]}`} alt={displayTitle} className="main-img" width={500} height={500} />}
+                {variant.images?.length > 0 && <img src={`https://api.barosche.com${variant.images[imgIdx]}`} alt={displayTitle} className="main-img" width={500} height={500} />}
                 {variant.isSale && <span className="detail-badge-sale">SALE</span>}
                 {outOfStockVariant && <span className="detail-badge-out">OUT OF STOCK</span>}
               </div>
               {variant.images?.length > 1 && (
                 <div className="thumb-row">
-                 {variant.images.map((img, i) => (<img key={i} src={`https://api.barosche.com${img}`} alt="" className={`thumb-img ${imgIdx === i ? "active" : ""}`} onClick={() => setImgIdx(i)} width={70} height={70} />))}
+                  {variant.images.map((img, i) => (<img key={i} src={`https://api.barosche.com${img}`} alt="" className={`thumb-img ${imgIdx === i ? "active" : ""}`} onClick={() => setImgIdx(i)} width={70} height={70} />))}
                 </div>
               )}
               {variant.videos?.length > 0 && (
@@ -999,7 +999,7 @@ function ProductCard({ product, onClick, onEdit, onDelete }) {
   return (
     <div className="product-card" onClick={onClick}>
       <div className="card-img-wrap">
-       {firstVariant.images?.[0] ? <img src={`https://api.barosche.com${firstVariant.images[0]}`} alt={product.title} className="card-img" width={300} height={300} /> : <div className="card-img-placeholder">📷</div>}
+        {firstVariant.images?.[0] ? <img src={`https://api.barosche.com${firstVariant.images[0]}`} alt={product.title} className="card-img" width={300} height={300} /> : <div className="card-img-placeholder">📷</div>}
         {firstVariant.isSale && <span className="badge-sale">SALE</span>}
         {cardOutOfStock && <span className="badge-out">OUT OF STOCK</span>}
         {!cardOutOfStock && cardQty > 0 && cardQty <= 3 && (
@@ -1037,7 +1037,6 @@ function ProductCard({ product, onClick, onEdit, onDelete }) {
     </div>
   );
 }
-
 
 /* ═══════════════════════════════════════════════════════
    PRODUCTS SECTION

@@ -801,6 +801,8 @@ function ProductCard({ p, wishlist, toggleWishlist, currency, ui, onQuickView })
                         alt={p.title}
                         className="jw-card-img"
                         loading="lazy"
+                        width={500}
+                        height={600}
                         onError={(e) => { e.target.src = "/placeholder.jpg"; }}
                     />
                 )}
@@ -1320,25 +1322,25 @@ export default function Chosen() {
             </div>
             <Reviews />
 
-             {/* Bottom Accordions */}
-                    <div className="jw-bottom-accordions">
-                        <AccordionItem title={ui.chosenJewellery}>
-                            <div className="jw-accordion-text">
-                                {renderContentBlocks(translatedContent)}
-                            </div>
-                        </AccordionItem>
-
-                        <AccordionItem title={ui.faq}>
-                            <div className="jw-faq-list">
-                                {translatedFaq.map((item, i) => (
-                                    <div key={i} className="jw-faq-item">
-                                        <p className="jw-faq-q">{i + 1}. {item.q}</p>
-                                        <p className="jw-faq-a">{item.a}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </AccordionItem>
+            {/* Bottom Accordions */}
+            <div className="jw-bottom-accordions">
+                <AccordionItem title={ui.chosenJewellery}>
+                    <div className="jw-accordion-text">
+                        {renderContentBlocks(translatedContent)}
                     </div>
+                </AccordionItem>
+
+                <AccordionItem title={ui.faq}>
+                    <div className="jw-faq-list">
+                        {translatedFaq.map((item, i) => (
+                            <div key={i} className="jw-faq-item">
+                                <p className="jw-faq-q">{i + 1}. {item.q}</p>
+                                <p className="jw-faq-a">{item.a}</p>
+                            </div>
+                        ))}
+                    </div>
+                </AccordionItem>
+            </div>
         </div>
     );
 }

@@ -290,8 +290,6 @@ function QuickViewModal({ product, currency, onClose, onAddToCart, wishlist, onT
                                 <video
                                     ref={videoRef}
                                     src={`${API_BASE}${activeItem.src}`}
-                                    width="600"
-                                    height="600"
                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     muted
                                     playsInline
@@ -302,16 +300,12 @@ function QuickViewModal({ product, currency, onClose, onAddToCart, wishlist, onT
                                 <img
                                     src={`${API_BASE}${activeItem.src}`}
                                     alt={product.title || product.name}
-                                    width="600"
-                                    height="600"
                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                 />
                             )
                         ) : (
                             <img src="/placeholder.jpg" alt="placeholder"
-                                width="600"
-                                height="600"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         )}
                     </div>
@@ -332,8 +326,6 @@ function QuickViewModal({ product, currency, onClose, onAddToCart, wishlist, onT
                                         <>
                                             <video
                                                 src={`${API_BASE}${item.src}`}
-                                                width="54"
-                                                height="54"
                                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                                 muted
                                                 playsInline
@@ -352,8 +344,6 @@ function QuickViewModal({ product, currency, onClose, onAddToCart, wishlist, onT
                                         <img
                                             src={`${API_BASE}${item.src}`}
                                             alt={`view ${i + 1}`}
-                                            width="54"
-                                            height="54"
                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                         />
@@ -597,8 +587,6 @@ function ProductCard({ p, wishlist, toggleWishlist, currency, onQuickView, onAdd
                         ref={videoRef}
                         src={`${API_BASE}${currentItem.src}`}
                         className="jw-card-img"
-                        width="400"
-                        height="400"
                         muted
                         playsInline
                         autoPlay
@@ -609,8 +597,6 @@ function ProductCard({ p, wishlist, toggleWishlist, currency, onQuickView, onAdd
                         src={currentItem ? `${API_BASE}${currentItem.src}` : '/placeholder.jpg'}
                         alt={p.title || p.name}
                         className="jw-card-img"
-                        width="400"
-                        height="400"
                         loading="lazy"
                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                     />

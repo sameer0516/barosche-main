@@ -1,6 +1,6 @@
 .tsaveline-banner {
   width: 100%;
-  min-height: 800px;
+  min-height: 660px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -90,7 +90,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 800px;
+    min-height: 650px;
     background-image: url("/mobile-size-banner.png");
     background-size: cover;
     background-position: center;

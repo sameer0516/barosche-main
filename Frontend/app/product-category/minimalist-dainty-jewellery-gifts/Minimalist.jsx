@@ -47,7 +47,7 @@ const DEFAULT_UI = {
     priceHighLow: "Price: High to Low",
     newest: "Newest",
     filtersText: "Filters",
-    fashionJewellery: "Luxury Jewellery Gifts",
+    fashionJewellery: "Minimalist Gold Jewellery Gifts",
     faq: "Frequently Asked Questions",
     retry: "Retry",
     gridView: "Grid view",
@@ -616,10 +616,23 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                     controls
                                 />
                             ) : (
-                                <img src={`${API_BASE}${activeItem.src}`} alt={product.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                               <img
+    src={`${API_BASE}${activeItem.src}`}
+    alt={product.title}
+    width="600"
+    height="600"
+    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                             )
                         ) : (
-                            <img src="/placeholder.jpg" alt="placeholder" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img
+    src="/placeholder.jpg"
+    alt="placeholder"
+    width="600"
+    height="600"
+    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+/>
                         )}
                     </div>
                     {mediaList.length > 1 && (
@@ -645,7 +658,14 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                             </span>
                                         </>
                                     ) : (
-                                        <img src={`${API_BASE}${item.src}`} alt={`view ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                        <img
+    src={`${API_BASE}${item.src}`}
+    alt={`view ${i + 1}`}
+    width="54"
+    height="54"
+    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                                     )}
                                 </button>
                             ))}
@@ -815,12 +835,14 @@ function ProductCard({ p, wishlist, toggleWishlist, currency, ui, onQuickView })
                     />
                 ) : (
                     <img
-                        src={currentItem ? `${API_BASE}${currentItem.src}` : "/placeholder.jpg"}
-                        alt={p.title}
-                        className="jw-card-img"
-                        loading="lazy"
-                        onError={(e) => { e.target.src = "/placeholder.jpg"; }}
-                    />
+    src={currentItem ? `${API_BASE}${currentItem.src}` : "/placeholder.jpg"}
+    alt={p.title}
+    width="400"
+    height="480"
+    className="jw-card-img"
+    loading="lazy"
+    onError={(e) => { e.target.src = "/placeholder.jpg"; }}
+/>
                 )}
 
                 {mediaList.length > 1 && (

@@ -1,4 +1,3 @@
-
 import PendantDetailClient from './pendantDetailClient.jsx';
 import { generateCategoryStaticParams } from '../../staticParamsHelper.js';
 
@@ -33,15 +32,15 @@ export async function generateMetadata({ params }) {
         };
     }
 
-    const pageUrl = `${SITE_URL}/product-category/rings/${product.slug}`;
+    const pageUrl = `${SITE_URL}/product-category/pendants/${product.slug}`;
 
     const rawImg =
         product.images && product.images.length > 0
             ? product.images[0]
-            : product.img || '';
+            : product.variants?.[0]?.images?.[0] || product.img || '';
     const imageUrl = rawImg.startsWith('http') ? rawImg : `${API_BASE}${rawImg}`;
 
-    const title = `${product.title || product.name} | Barosche Rings`;
+    const title = `${product.title || product.name} | Barosche Pendants`;
     const description = (product.description || '').slice(0, 160);
 
     return {
@@ -49,10 +48,10 @@ export async function generateMetadata({ params }) {
         description,
         keywords: [
             product.category,
-            'rings',
+            'pendants',
             'barosche',
             'fine jewellery',
-            'statement rings',
+            'statement pendants',
             'handcrafted jewellery',
         ]
             .filter(Boolean)
@@ -95,15 +94,19 @@ export async function generateMetadata({ params }) {
 
 // ── Full JSON-LD Schema (WebPage + ImageObject + Product/Offer/Breadcrumb) ──
 function ProductJsonLd({ product }) {
-    const pageUrl = `${SITE_URL}/product-category/rings/${product.slug}/`;
+    const pageUrl = `${SITE_URL}/product-category/pendants/${product.slug}/`;
+
+    const variantImages = product.variants?.[0]?.images || [];
 
     // Handle single or multiple images
     const rawImages =
         product.images && product.images.length > 0
             ? product.images
-            : product.img
-                ? [product.img]
-                : [];
+            : variantImages.length > 0
+                ? variantImages
+                : product.img
+                    ? [product.img]
+                    : [];
     const imageUrls = rawImages.map((img) =>
         img.startsWith('http') ? img : `${API_BASE}${img}`
     );
@@ -194,8 +197,8 @@ function ProductJsonLd({ product }) {
                 sku: product.sku || product._id,
                 color: product.color || undefined,
                 size: product.size || undefined,
-                category: `Jewellery > Rings`,
-                material: materials.length ? materials : undefined,
+                category: `Jewellery > Pendants`,
+                material: materials.length ? materials.join(', ') : undefined,
                 brand: {
                     '@type': 'Brand',
                     name: 'Barosche',
@@ -376,8 +379,8 @@ function ProductJsonLd({ product }) {
                     {
                         '@type': 'ListItem',
                         position: 2,
-                        name: 'Rings',
-                        item: `${SITE_URL}/product-category/rings/`,
+                        name: 'Pendants',
+                        item: `${SITE_URL}/product-category/pendants/`,
                     },
                     {
                         '@type': 'ListItem',

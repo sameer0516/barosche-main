@@ -628,12 +628,16 @@ function QuickViewModal({ product, currency, T, onClose, onAddToCart, wishlist, 
                                 <img
                                     src={`${API_BASE}${activeItem.src}`}
                                     alt={product.title || product.name}
+                                    width={400}
+                                    height={400}
                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                 />
                             )
                         ) : (
                             <img src="/placeholder.jpg" alt="placeholder"
+                                width={400}
+                                height={400}
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         )}
                     </div>
@@ -675,6 +679,8 @@ function QuickViewModal({ product, currency, T, onClose, onAddToCart, wishlist, 
                                         <img
                                             src={`${API_BASE}${item.src}`}
                                             alt={`view ${i + 1}`}
+                                            width={54}
+                                            height={54}
                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                         />
@@ -985,6 +991,8 @@ function ProductCard({ p, wishlist, toggleWishlist, T, currency, onQuickView, on
                         src={currentItem ? `${API_BASE}${currentItem.src}` : '/placeholder.jpg'}
                         alt={p.title || p.name}
                         className="jw-card-img"
+                        width={500}
+                        height={600}
                         loading="lazy"
                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                     />

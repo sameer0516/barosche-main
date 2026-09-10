@@ -106,6 +106,8 @@ function MobileSlider({ images, getImgSrc, productName, isSale, selectedImageInd
                             src={getImgSrc(img)}
                             alt={`${productName} view ${idx + 1}`}
                             loading={idx === 0 ? 'eager' : 'lazy'}
+                            width="600"
+                            height="800"
                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                         />
                     </div>
@@ -150,12 +152,12 @@ export default function ShopDetailClient({ slug }) {
     const wrapperRef = useRef(null);
 
     const stoneColors = [
-        { name: 'Blue Topaz',  hex: '#7bc4e1' },
-        { name: 'Amethyst',    hex: '#8a4f7d' },
-        { name: 'Citrine',     hex: '#e8b84b' },
-        { name: 'Peridot',     hex: '#a3be6b' },
-        { name: 'Prasiolite',  hex: '#c5d0bc' },
-        { name: 'Garnet',      hex: '#7a2021' },
+        { name: 'Blue Topaz', hex: '#7bc4e1' },
+        { name: 'Amethyst', hex: '#8a4f7d' },
+        { name: 'Citrine', hex: '#e8b84b' },
+        { name: 'Peridot', hex: '#a3be6b' },
+        { name: 'Prasiolite', hex: '#c5d0bc' },
+        { name: 'Garnet', hex: '#7a2021' },
     ];
     const [selectedColor, setSelectedColor] = useState(0);
 
@@ -419,6 +421,8 @@ export default function ShopDetailClient({ slug }) {
                                                             <img
                                                                 src={getImgSrc(vImg)}
                                                                 alt={v.name || `Variant ${idx + 1}`}
+                                                                width="64"
+                                                                height="64"
                                                                 onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                             />
                                                         </div>
@@ -565,6 +569,8 @@ export default function ShopDetailClient({ slug }) {
                                                         src={getImgSrc(img)}
                                                         alt={`${product.title || product.name} view ${globalIdx + 1}`}
                                                         loading={globalIdx < 2 ? 'eager' : 'lazy'}
+                                                        width="600"
+                                                        height="800"
                                                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                     />
                                                 </div>
@@ -617,6 +623,8 @@ export default function ShopDetailClient({ slug }) {
                                                                 <img
                                                                     src={getImgSrc(vImg)}
                                                                     alt={v.name || `Variant ${idx + 1}`}
+                                                                    width="84"
+                                                                    height="84"
                                                                     onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                                 />
                                                             </div>
@@ -707,12 +715,12 @@ export default function ShopDetailClient({ slug }) {
                                             label: 'Care Instructions',
                                             content:
                                                 <p>
-                                                   <ul>
-                                                    <li>Avoid contact with perfumes, lotions, and chemicals</li>
-                                                    <li>Clean gently with a soft cloth after use</li>
-                                                    <li>*Store in a dry pouch or box</li>
-                                                    <li>Handle carefully to prevent scratches or damage</li>
-                                                   </ul>
+                                                    <ul>
+                                                        <li>Avoid contact with perfumes, lotions, and chemicals</li>
+                                                        <li>Clean gently with a soft cloth after use</li>
+                                                        <li>*Store in a dry pouch or box</li>
+                                                        <li>Handle carefully to prevent scratches or damage</li>
+                                                    </ul>
                                                 </p>
                                         }
                                     ].map(({ key, label, content }) => (
@@ -750,6 +758,8 @@ export default function ShopDetailClient({ slug }) {
                                         <img
                                             src={getRelatedImgSrc(rp)}
                                             alt={rp.title || rp.name}
+                                            width="400"
+                                            height="533"
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                         />
                                     </div>

@@ -256,6 +256,8 @@ function MobileSlider({ images, getImgSrc, productName, isSale, selectedImageInd
                         <img
                             src={getImgSrc(img)}
                             alt={`${productName} view ${idx + 1}`}
+                            width="800"
+                            height="1067"
                             loading={idx === 0 ? 'eager' : 'lazy'}
                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                         />
@@ -347,6 +349,8 @@ function InstallmentSection({ price }) {
                         <img
                             src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
                             alt="PayPal"
+                            width="100"
+                            height="30"
                             className="paypal-logo"
                         />
                     </div>
@@ -584,16 +588,16 @@ export default function LuxuryJewelleryDetail({ slug }) {
     const newPrice = activeVariant.newPrice ?? product.newPrice ?? product.price ?? 0;
     const isSale = activeVariant.isSale ?? product.isSale ?? false;
     const variantQtyRaw = activeVariant.quantity;
-    const variantQty    = variantQtyRaw !== undefined ? Number(variantQtyRaw) : null;
+    const variantQty = variantQtyRaw !== undefined ? Number(variantQtyRaw) : null;
     const inStock = (variantQty !== null ? variantQty > 0 : true)
-    && (activeVariant.inStock ?? product.inStock ?? true) !== false;
+        && (activeVariant.inStock ?? product.inStock ?? true) !== false;
 
-    const displayTitle       = activeVariant.title       || product.title || product.name;
+    const displayTitle = activeVariant.title || product.title || product.name;
     const displayDescription = activeVariant.description || product.description || '';
-    const displayMaterials   = (activeVariant.materials && activeVariant.materials.length > 0)
+    const displayMaterials = (activeVariant.materials && activeVariant.materials.length > 0)
         ? activeVariant.materials
         : (product.materials || []);
-    const displayGemstones   = (activeVariant.gemstones && activeVariant.gemstones.length > 0)
+    const displayGemstones = (activeVariant.gemstones && activeVariant.gemstones.length > 0)
         ? activeVariant.gemstones
         : (product.gemstones || []);
 
@@ -762,6 +766,8 @@ export default function LuxuryJewelleryDetail({ slug }) {
                                                                 <img
                                                                     src={getImgSrc(vImg)}
                                                                     alt={v.name || `Variant ${idx + 1}`}
+                                                                    width="84"
+                                                                    height="84"
                                                                     onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                                 />
                                                             </div>
@@ -859,6 +865,8 @@ export default function LuxuryJewelleryDetail({ slug }) {
                                                         <img
                                                             src={getImgSrc(img)}
                                                             alt={`${displayTitle} view ${globalIdx + 1}`}
+                                                            width="640"
+                                                            height="800"
                                                             loading={globalIdx < 2 ? 'eager' : 'lazy'}
                                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                         />
@@ -924,6 +932,8 @@ export default function LuxuryJewelleryDetail({ slug }) {
                                                                     <img
                                                                         src={getImgSrc(vImg)}
                                                                         alt={v.name || `Variant ${idx + 1}`}
+                                                                        width="84"
+                                                                        height="84"
                                                                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                                     />
                                                                 </div>
@@ -1001,6 +1011,8 @@ export default function LuxuryJewelleryDetail({ slug }) {
                                         <img
                                             src={getRelatedImgSrc(rp)}
                                             alt={rp.title || rp.name}
+                                            width="480"
+                                            height="640"
                                             loading="lazy"
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                         />
@@ -1018,9 +1030,9 @@ export default function LuxuryJewelleryDetail({ slug }) {
                                                 return (
                                                     <>
                                                         {op && Number(op) > Number(np) && (
-                                                        <del className="jd-related-old-price">
-                                                           €{Number(op).toLocaleString('en-IN')}
-                                                        </del>
+                                                            <del className="jd-related-old-price">
+                                                                €{Number(op).toLocaleString('en-IN')}
+                                                            </del>
                                                         )}
                                                         <span className="jd-related-price">€{Number(np).toLocaleString('en-IN')}</span>
                                                     </>

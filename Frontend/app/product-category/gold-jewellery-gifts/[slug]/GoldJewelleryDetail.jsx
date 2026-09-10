@@ -257,6 +257,7 @@ function MobileSlider({ images, getImgSrc, productName, isSale, selectedImageInd
                             src={getImgSrc(img)}
                             alt={`${productName} view ${idx + 1}`}
                             loading={idx === 0 ? 'eager' : 'lazy'}
+                            width="800" height="1067"
                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                         />
                     </div>
@@ -348,6 +349,7 @@ function InstallmentSection({ price }) {
                             src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
                             alt="PayPal"
                             className="paypal-logo"
+                            width="100" height="30"
                         />
                     </div>
                     <div className="info-box">
@@ -584,16 +586,16 @@ export default function GoldJewelleryDetail({ slug }) {
     const newPrice = activeVariant.newPrice ?? product.newPrice ?? product.price ?? 0;
     const isSale = activeVariant.isSale ?? product.isSale ?? false;
     const variantQtyRaw = activeVariant.quantity;
-    const variantQty    = variantQtyRaw !== undefined ? Number(variantQtyRaw) : null;
+    const variantQty = variantQtyRaw !== undefined ? Number(variantQtyRaw) : null;
     const inStock = (variantQty !== null ? variantQty > 0 : true)
-    && (activeVariant.inStock ?? product.inStock ?? true) !== false;
+        && (activeVariant.inStock ?? product.inStock ?? true) !== false;
 
-    const displayTitle       = activeVariant.title       || product.title || product.name;
+    const displayTitle = activeVariant.title || product.title || product.name;
     const displayDescription = activeVariant.description || product.description || '';
-    const displayMaterials   = (activeVariant.materials && activeVariant.materials.length > 0)
+    const displayMaterials = (activeVariant.materials && activeVariant.materials.length > 0)
         ? activeVariant.materials
         : (product.materials || []);
-    const displayGemstones   = (activeVariant.gemstones && activeVariant.gemstones.length > 0)
+    const displayGemstones = (activeVariant.gemstones && activeVariant.gemstones.length > 0)
         ? activeVariant.gemstones
         : (product.gemstones || []);
 
@@ -762,6 +764,7 @@ export default function GoldJewelleryDetail({ slug }) {
                                                                 <img
                                                                     src={getImgSrc(vImg)}
                                                                     alt={v.name || `Variant ${idx + 1}`}
+                                                                    width="64" height="64"
                                                                     onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                                 />
                                                             </div>
@@ -860,6 +863,7 @@ export default function GoldJewelleryDetail({ slug }) {
                                                             src={getImgSrc(img)}
                                                             alt={`${displayTitle} view ${globalIdx + 1}`}
                                                             loading={globalIdx < 2 ? 'eager' : 'lazy'}
+                                                            width="640" height="800"
                                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                         />
                                                     </div>
@@ -924,6 +928,7 @@ export default function GoldJewelleryDetail({ slug }) {
                                                                     <img
                                                                         src={getImgSrc(vImg)}
                                                                         alt={v.name || `Variant ${idx + 1}`}
+                                                                        width="84" height="84"
                                                                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                                     />
                                                                 </div>
@@ -1002,6 +1007,7 @@ export default function GoldJewelleryDetail({ slug }) {
                                             src={getRelatedImgSrc(rp)}
                                             alt={rp.title || rp.name}
                                             loading="lazy"
+                                            width="400" height="533"
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                         />
                                         {(getFirstVariant(rp).isSale || rp.isSale) && (
@@ -1018,9 +1024,9 @@ export default function GoldJewelleryDetail({ slug }) {
                                                 return (
                                                     <>
                                                         {op && Number(op) > Number(np) && (
-                                                        <del className="jd-related-old-price">
-                                                           €{Number(op).toLocaleString('en-IN')}
-                                                        </del>
+                                                            <del className="jd-related-old-price">
+                                                                €{Number(op).toLocaleString('en-IN')}
+                                                            </del>
                                                         )}
                                                         <span className="jd-related-price">€{Number(np).toLocaleString('en-IN')}</span>
                                                     </>

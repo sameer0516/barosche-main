@@ -19,7 +19,7 @@ const sitemapData = [
     links: [
       { label: "Earrings", href: "/product-category/earrings" },
       { label: "Rings", href: "/product-category/rings" },
-      { label: "Jewellery", href: "/jewellery/" },
+      { label: "Jewellery", href: "/product-category/jewellery/" },
       { label: "Pendants", href: "/product-category/pendants" },
       { label: "For Today", href: "/product-category/for-today-jewellery/" },
       { label: "Bracelets", href: "/product-category/bracelets" },

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./blog.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,7 +20,6 @@ function resolveImage(img) {
   return img.startsWith("http") ? img : `${BACKEND_URL}${img}`;
 }
 
-// category ko normalize karke compare karo — case/whitespace mismatch se bachne ke liye
 function normalizeCategory(cat) {
   return (cat || "Blog").toString().trim().toLowerCase();
 }
@@ -45,31 +44,24 @@ export default function BlogPage({ initialBlogs = [] }) {
     initialBlogs.length > 0 ? "done" : "loading"
   );
 
-  const skippedInitialFetch = useRef(false);
-
-  const fetchAndTranslateBlogs = useCallback(async () => {
+  // isBackgroundRefresh true hone par loading spinner nahi dikhega —
+  // initialBlogs turant dikh jayenge, fresh data silently update ho jayega
+  const fetchAndTranslateBlogs = useCallback(async (isBackgroundRefresh) => {
     try {
-      setTranslationStatus("loading");
+      if (!isBackgroundRefresh) setTranslationStatus("loading");
 
       let fetchedBlogs = [];
-
-      if (!skippedInitialFetch.current && initialBlogs.length > 0) {
+      try {
+        const res = await fetch(`${BACKEND_URL}/api/blogs`, { cache: "no-store" });
+        if (!res.ok) throw new Error("Fetch failed");
+        const data = await res.json();
+        fetchedBlogs = Array.isArray(data) ? data : [];
+      } catch (err) {
+        console.error("Blog fetch error:", err);
         fetchedBlogs = initialBlogs;
-      } else {
-        try {
-          const res = await fetch(`${BACKEND_URL}/api/blogs`, { cache: "no-store" });
-          if (!res.ok) throw new Error("Fetch failed");
-          const data = await res.json();
-          fetchedBlogs = Array.isArray(data) ? data : [];
-        } catch (err) {
-          console.error("Blog fetch error:", err);
-          fetchedBlogs = [];
-        }
       }
 
       fetchedBlogs = filterByCategory(fetchedBlogs, "Blog");
-
-      skippedInitialFetch.current = true;
 
       if (fetchedBlogs.length === 0) {
         setBlogs([]);
@@ -143,7 +135,9 @@ export default function BlogPage({ initialBlogs = [] }) {
   }, [initialBlogs]);
 
   useEffect(() => {
-    fetchAndTranslateBlogs();
+    // Hamesha fresh list fetch karo taaki naye/edited blogs turant dikhein.
+    fetchAndTranslateBlogs(initialBlogs.length > 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchAndTranslateBlogs]);
 
   if (translationStatus === "loading") {

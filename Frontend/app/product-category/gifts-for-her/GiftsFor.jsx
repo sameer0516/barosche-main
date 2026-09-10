@@ -47,7 +47,7 @@ const DEFAULT_UI = {
     priceHighLow: "Price: High to Low",
     newest: "Newest",
     filtersText: "Filters",
-    fashionJewellery: "Luxury Jewellery Gifts",
+    fashionJewellery: "Gifts for Her",
     faq: "Frequently Asked Questions",
     retry: "Retry",
     gridView: "Grid view",
@@ -253,7 +253,7 @@ const faqData = [
 //  FASHION JEWELLERY CONTENT DATA — Luxury Jewellery Gifts
 // ─────────────────────────────────────────────────────────
 const fashionJewelleryContent = [
-     { type: 'h2', text: "Gifts for Her – Thoughtful & Meaningful Gift Ideas for Women" },
+    { type: 'h2', text: "Gifts for Her – Thoughtful & Meaningful Gift Ideas for Women" },
     { type: 'p', text: "Finding the perfect <strong>gifts for her</strong> is about choosing something that reflects her personality, style, and the special place she holds in your life. A thoughtful gift is not just about the item itself—it is about the emotions, memories, and meaning attached to it. Whether you are celebrating a birthday, anniversary, festival, relationship milestone, or achievement or simply want to show appreciation, the right gift can create a beautiful and lasting memory." },
     { type: 'p', text: "The best gifts are not always the most expensive—they are the ones chosen with genuine care and understanding. A meaningful gift for her should match her preferences, lifestyle, and personality while making her feel valued and appreciated. A carefully selected present shows that you have considered what she loves and what makes her unique." },
     { type: 'p', text: "At Barosche, we offer a thoughtfully curated collection of elegant jewellery designed to make every gifting moment truly special. Our jewellery combines modern sophistication with timeless beauty, offering <strong>best gifts for women</strong> who appreciate refined designs, premium craftsmanship, and effortless elegance. Each piece is created with attention to detail, ensuring it feels luxurious while remaining comfortable for everyday wear." },
@@ -624,10 +624,10 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                     controls
                                 />
                             ) : (
-                                <img src={`${API_BASE}${activeItem.src}`} alt={product.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                <img src={`${API_BASE}${activeItem.src}`} alt={product.title} width="430" height="430" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                             )
                         ) : (
-                            <img src="/placeholder.jpg" alt="placeholder" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img src="/placeholder.jpg" alt="placeholder" width="430" height="430" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         )}
                     </div>
                     {mediaList.length > 1 && (
@@ -653,7 +653,7 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                             </span>
                                         </>
                                     ) : (
-                                        <img src={`${API_BASE}${item.src}`} alt={`view ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                        <img src={`${API_BASE}${item.src}`} alt={`view ${i + 1}`} width="54" height="54" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                     )}
                                 </button>
                             ))}
@@ -827,6 +827,7 @@ function ProductCard({ p, wishlist, toggleWishlist, currency, ui, onQuickView })
                         alt={p.title}
                         className="jw-card-img"
                         loading="lazy"
+                        width="400" height="480"
                         onError={(e) => { e.target.src = "/placeholder.jpg"; }}
                     />
                 )}
@@ -1141,49 +1142,49 @@ export default function GiftsFor() {
             </div>
             <Reviews />
 
-              <div className="jw-bottom-accordions">
-                        <AccordionItem title={ui.fashionJewellery}>
-                            <div className="jw-accordion-text">
-                                {translatedFashionContent.map((item, i) => {
-                                    if (item.type === 'h' || item.type === 'h2') {
-                                        return <h2 key={i} className="jw-accordion-heading" dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                    }
-                                    if (item.type === 'h3') {
-                                        return <h3 key={i} className="jw-accordion-subheading" dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                    }
-                                    if (item.type === 'h3link') {
-                                        return (
-                                            <h3 key={i} className="jw-accordion-subheading">
-                                                <Link href={item.href} style={{ color: '#007bff', textDecoration: 'underline' }}>
-                                                    <span dangerouslySetInnerHTML={{ __html: item.text }} />
-                                                </Link>
-                                            </h3>
-                                        );
-                                    }
-                                    if (item.type === 'h4') {
-                                        return <h4 key={i} className="jw-accordion-subsubheading" dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                    }
-                                    if (item.type === 'ul') {
-                                        return <ul key={i} className="jw-accordion-list" dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                    }
-                                    if (item.type === 'ol') {
-                                        return <ol key={i} className="jw-accordion-list" dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                    }
-                                    return <p key={i} dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                })}
-                            </div>
-                        </AccordionItem>
-                        <AccordionItem title={ui.faq}>
-                            <div className="jw-faq-list">
-                                {translatedFaq.map((item, i) => (
-                                    <div key={i} className="jw-faq-item">
-                                        <p className="jw-faq-q" dangerouslySetInnerHTML={{ __html: `${i + 1}. ${item.q}` }} />
-                                        <p className="jw-faq-a" dangerouslySetInnerHTML={{ __html: item.a }} />
-                                    </div>
-                                ))}
-                            </div>
-                        </AccordionItem>
+            <div className="jw-bottom-accordions">
+                <AccordionItem title={ui.fashionJewellery}>
+                    <div className="jw-accordion-text">
+                        {translatedFashionContent.map((item, i) => {
+                            if (item.type === 'h' || item.type === 'h2') {
+                                return <h2 key={i} className="jw-accordion-heading" dangerouslySetInnerHTML={{ __html: item.text }} />;
+                            }
+                            if (item.type === 'h3') {
+                                return <h3 key={i} className="jw-accordion-subheading" dangerouslySetInnerHTML={{ __html: item.text }} />;
+                            }
+                            if (item.type === 'h3link') {
+                                return (
+                                    <h3 key={i} className="jw-accordion-subheading">
+                                        <Link href={item.href} style={{ color: '#007bff', textDecoration: 'underline' }}>
+                                            <span dangerouslySetInnerHTML={{ __html: item.text }} />
+                                        </Link>
+                                    </h3>
+                                );
+                            }
+                            if (item.type === 'h4') {
+                                return <h4 key={i} className="jw-accordion-subsubheading" dangerouslySetInnerHTML={{ __html: item.text }} />;
+                            }
+                            if (item.type === 'ul') {
+                                return <ul key={i} className="jw-accordion-list" dangerouslySetInnerHTML={{ __html: item.text }} />;
+                            }
+                            if (item.type === 'ol') {
+                                return <ol key={i} className="jw-accordion-list" dangerouslySetInnerHTML={{ __html: item.text }} />;
+                            }
+                            return <p key={i} dangerouslySetInnerHTML={{ __html: item.text }} />;
+                        })}
                     </div>
+                </AccordionItem>
+                <AccordionItem title={ui.faq}>
+                    <div className="jw-faq-list">
+                        {translatedFaq.map((item, i) => (
+                            <div key={i} className="jw-faq-item">
+                                <p className="jw-faq-q" dangerouslySetInnerHTML={{ __html: `${i + 1}. ${item.q}` }} />
+                                <p className="jw-faq-a" dangerouslySetInnerHTML={{ __html: item.a }} />
+                            </div>
+                        ))}
+                    </div>
+                </AccordionItem>
+            </div>
         </div>
     );
 }

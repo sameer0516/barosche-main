@@ -17,7 +17,6 @@ const DEFAULT_CONTENT = {
 const EarringsRings = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   
-  // Translation ke liye state
   const [content, setContent] = useState(DEFAULT_CONTENT);
 
   const toggleReadMore = () => {

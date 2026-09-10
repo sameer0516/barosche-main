@@ -44,7 +44,7 @@ const DEFAULT_UI = {
     priceHighLow: "Price: High to Low",
     newest: "Newest",
     filtersText: "Filters",
-    fashionJewellery: "Fashion Jewellery",
+    fashionJewellery: "Lab-Grown Diamond & Gemstone Jewellery",
     faq: "Frequently Asked Questions",
     retry: "Retry",
     gridView: "Grid view",
@@ -56,7 +56,7 @@ const DEFAULT_UI = {
 
     showingOf: "Showing",
     showingResults: "results",
-    pageTitle: "Elegant Semi-Precious & Gold Fashion Jewellery Collection",
+    pageTitle: "Fine Lab-Grown Diamond & Gemstone Jewellery Collection",
     priceOnRequest: "Price on request",
 };
 

@@ -38,58 +38,58 @@ function formatPrice(eurPrice, currency) {
 // ─────────────────────────
 const DEFAULT_STRINGS = {
     // Breadcrumb
-    home:               "Home",
-    jewellery:          "Jewellery",
-    collection:         "Collection",
-    reviews:            "reviews",
-    brandTag:           "Barosche Fine Jewellery",
-    vatIncluded:        "VAT included",
-    metalTypeLabel:     "Metal Type:",
-    all:                "All",
-    styleLabel:         "Style:",
-    promoText:          "This price is up to",
-    promoHighlight:     "49% lower",
-    promoSuffix:        "in comparison to traditional jewellery shops.",
-    klarnaDesc:         "In 3 interest-free installments from",
-    klarnaOr:           "or flexible payments in up to 12 installments",
-    paypalDesc:         "In 4 interest-free installments from",
-    paypalOr:           "or flexible payments in up to 24 installments",
-    qty:                "Qty:",
-    outOfStock:         "OUT OF STOCK",
-    addedToBag:         "✓ ADDED TO BAG",
-    addToBag:           "ADD TO BAG",
-    addToWishlist:      "Add to wishlist",
+    home: "Home",
+    jewellery: "Jewellery",
+    collection: "Collection",
+    reviews: "reviews",
+    brandTag: "Barosche Fine Jewellery",
+    vatIncluded: "VAT included",
+    metalTypeLabel: "Metal Type:",
+    all: "All",
+    styleLabel: "Style:",
+    promoText: "This price is up to",
+    promoHighlight: "49% lower",
+    promoSuffix: "in comparison to traditional jewellery shops.",
+    klarnaDesc: "In 3 interest-free installments from",
+    klarnaOr: "or flexible payments in up to 12 installments",
+    paypalDesc: "In 4 interest-free installments from",
+    paypalOr: "or flexible payments in up to 24 installments",
+    qty: "Qty:",
+    outOfStock: "OUT OF STOCK",
+    addedToBag: "✓ ADDED TO BAG",
+    addToBag: "ADD TO BAG",
+    addToWishlist: "Add to wishlist",
     // Delivery
-    standardDelivery:   "Standard Delivery",
-    standardDeliverySub:"Germany: 2 – 4 Working Days | EU: 4 – 8 Working Days",
-    free:               "Free",
-    expressDelivery:    "Express Delivery",
+    standardDelivery: "Standard Delivery",
+    standardDeliverySub: "Germany: 2 – 4 Working Days | EU: 4 – 8 Working Days",
+    free: "Free",
+    expressDelivery: "Express Delivery",
     expressDeliverySub: "Germany: 2 – 3 Working Days | EU: 2 – 4 Working Days",
-    expressVariants:    "40 variants",
+    expressVariants: "40 variants",
     // Accordion labels
     productDescription: "Product Description",
-    shippingInfo:       "Shipping Information",
-    careInstructions:   "Care Instructions",
+    shippingInfo: "Shipping Information",
+    careInstructions: "Care Instructions",
     // Shipping bullets
-    ship1:              "Complimentary shipping across Germany",
-    ship2:              "Worldwide shipping available at checkout",
-    ship3:              "Presented in eco-conscious, fully paper-based packaging, ready for gifting",
-    ship4:              "Carefully crafted to be treasured for years to come",
-    ship5:              "Covered by our 365-day warranty against manufacturing defects",
+    ship1: "Complimentary shipping across Germany",
+    ship2: "Worldwide shipping available at checkout",
+    ship3: "Presented in eco-conscious, fully paper-based packaging, ready for gifting",
+    ship4: "Carefully crafted to be treasured for years to come",
+    ship5: "Covered by our 365-day warranty against manufacturing defects",
     // Care bullets
-    care1:              "Avoid contact with perfumes, lotions, and chemicals",
-    care2:              "Clean gently with a soft cloth after use",
-    care3:              "Store in a dry pouch or box away from sunlight",
-    care4:              "Handle carefully to prevent scratches or damage",
+    care1: "Avoid contact with perfumes, lotions, and chemicals",
+    care2: "Clean gently with a soft cloth after use",
+    care3: "Store in a dry pouch or box away from sunlight",
+    care4: "Handle carefully to prevent scratches or damage",
     // Description fallback
-    descFallback:       "An exploration of colour and form, inspired by the pure beauty of hand-set stones and masterful craftsmanship.",
+    descFallback: "An exploration of colour and form, inspired by the pure beauty of hand-set stones and masterful craftsmanship.",
     // Attributes
-    attrMaterial:       "Material",
-    attrGemstone:       "Gemstone",
+    attrMaterial: "Material",
+    attrGemstone: "Gemstone",
     // Related
-    youMayAlsoLike:     "You May Also Like",
+    youMayAlsoLike: "You May Also Like",
     // Error
-    productNotFound:    "Product Not Found",
+    productNotFound: "Product Not Found",
     returnToCollection: "← Return to Collection",
 };
 
@@ -109,9 +109,9 @@ function rebuildStrings(keys, translations) {
 //  TRANSLATION + CURRENCY HOOK
 // ────────────────────────────
 function useTranslationAndCurrency() {
-    const [strings,  setStrings]  = useState(DEFAULT_STRINGS);
+    const [strings, setStrings] = useState(DEFAULT_STRINGS);
     const [currency, setCurrency] = useState(CURRENCY_MAP.default);
-    const [status,   setStatus]   = useState("idle");
+    const [status, setStatus] = useState("idle");
 
     useEffect(() => {
         let cancelled = false;
@@ -120,7 +120,7 @@ function useTranslationAndCurrency() {
             try {
                 setStatus("loading");
 
-                const detectRes  = await fetch(`${BACKEND_URL}/api/translate/detect-language`);
+                const detectRes = await fetch(`${BACKEND_URL}/api/translate/detect-language`);
                 const detectData = await detectRes.json();
                 if (!detectData.success) throw new Error("Language detection failed");
 
@@ -135,14 +135,14 @@ function useTranslationAndCurrency() {
                     return;
                 }
 
-                const keys       = Object.keys(DEFAULT_STRINGS);
+                const keys = Object.keys(DEFAULT_STRINGS);
                 const allStrings = flattenStrings(DEFAULT_STRINGS);
 
                 const translateRes = await fetch(`${BACKEND_URL}/api/translate/translate`, {
-                    method:  "POST",
+                    method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body:    JSON.stringify({
-                        texts:          allStrings,
+                    body: JSON.stringify({
+                        texts: allStrings,
                         targetLanguage: languageCode,
                         sourceLanguage: "en",
                     }),
@@ -174,11 +174,11 @@ function useTranslationAndCurrency() {
 function getFirstVariant(product) {
     if (product.variants && product.variants.length > 0) return product.variants[0];
     return {
-        images:   product.images || [],
+        images: product.images || [],
         oldPrice: product.oldPrice,
         newPrice: product.newPrice ?? product.price,
-        isSale:   product.isSale || false,
-        inStock:  product.inStock ?? true,
+        isSale: product.isSale || false,
+        inStock: product.inStock ?? true,
     };
 }
 
@@ -192,7 +192,7 @@ function parseDescription(text) {
                 const dashIdx = part.indexOf('—');
                 if (dashIdx > -1) {
                     const label = part.slice(0, dashIdx).trim();
-                    const body  = part.slice(dashIdx + 1).trim();
+                    const body = part.slice(dashIdx + 1).trim();
                     return (
                         <p key={i} className="jd-desc-point">
                             <span className="jd-desc-dot" aria-hidden="true">●</span>
@@ -383,7 +383,7 @@ function InstallmentSection({ price, T, currency }) {
                 </div>
                 <div className="payment-card">
                     <div className="logo-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="paypal-logo" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="paypal-logo" width="100" height="30" />
                     </div>
                     <div className="info-box">
                         <p>{T.paypalDesc} <strong>{paypalInstallment}</strong> {T.paypalOr}</p>
@@ -395,7 +395,7 @@ function InstallmentSection({ price, T, currency }) {
 }
 
 function MobileSlider({ images, getImgSrc, productName, selectedImageIndex, setSelectedImageIndex }) {
-    const sliderRef   = useRef(null);
+    const sliderRef = useRef(null);
     const touchStartX = useRef(null);
     const touchStartY = useRef(null);
     const autoPlayRef = useRef(null);
@@ -431,7 +431,7 @@ function MobileSlider({ images, getImgSrc, productName, selectedImageIndex, setS
         const dy = Math.abs(touchStartY.current - e.changedTouches[0].clientY);
         if (Math.abs(dx) > 40 && Math.abs(dx) > dy) {
             if (dx > 0) goToSlide(selectedImageIndex + 1);
-            else        goToSlide(selectedImageIndex - 1);
+            else goToSlide(selectedImageIndex - 1);
             resetAutoPlay();
         }
         touchStartX.current = null;
@@ -449,6 +449,7 @@ function MobileSlider({ images, getImgSrc, productName, selectedImageIndex, setS
                     <div className="jd-mobile-slide" key={idx}>
                         <img src={getImgSrc(img)} alt={`${productName} view ${idx + 1}`}
                             loading={idx === 0 ? 'eager' : 'lazy'}
+                            width="800" height="1067"
                             onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                     </div>
                 ))}
@@ -475,30 +476,30 @@ export default function ForTodayClient({ slug }) {
 
     const { strings: T, currency, status: tStatus } = useTranslationAndCurrency();
 
-    const [product,              setProduct]              = useState(null);
-    const [relatedProducts,      setRelatedProducts]      = useState([]);
-    const [loading,              setLoading]              = useState(true);
-    const [error,                setError]                = useState(null);
+    const [product, setProduct] = useState(null);
+    const [relatedProducts, setRelatedProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
-    const [qty,                  setQty]                  = useState(1);
-    const [addedToCart,          setAddedToCart]          = useState(false);
-    const [openAccordion,        setOpenAccordion]        = useState('details');
-    const [selectedImageIndex,   setSelectedImageIndex]   = useState(0);
-    const [scrollState,          setScrollState]          = useState('locked');
-    const [isMobile,             setIsMobile]             = useState(false);
-    const [selectedMetal,        setSelectedMetal]        = useState('All');
+    const [qty, setQty] = useState(1);
+    const [addedToCart, setAddedToCart] = useState(false);
+    const [openAccordion, setOpenAccordion] = useState('details');
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+    const [scrollState, setScrollState] = useState('locked');
+    const [isMobile, setIsMobile] = useState(false);
+    const [selectedMetal, setSelectedMetal] = useState('All');
 
     const galleryRef = useRef(null);
-    const infoRef    = useRef(null);
+    const infoRef = useRef(null);
     const wrapperRef = useRef(null);
 
     const stoneColors = [
         { name: 'Blue Topaz', hex: '#7bc4e1' },
-        { name: 'Amethyst',   hex: '#8a4f7d' },
-        { name: 'Citrine',    hex: '#e8b84b' },
-        { name: 'Peridot',    hex: '#a3be6b' },
+        { name: 'Amethyst', hex: '#8a4f7d' },
+        { name: 'Citrine', hex: '#e8b84b' },
+        { name: 'Peridot', hex: '#a3be6b' },
         { name: 'Prasiolite', hex: '#c5d0bc' },
-        { name: 'Garnet',     hex: '#7a2021' },
+        { name: 'Garnet', hex: '#7a2021' },
     ];
     const [selectedColor, setSelectedColor] = useState(0);
 
@@ -558,7 +559,7 @@ export default function ForTodayClient({ slug }) {
     useEffect(() => {
         if (isMobile) return;
         const gallery = galleryRef.current;
-        const info    = infoRef.current;
+        const info = infoRef.current;
         const wrapper = wrapperRef.current;
         if (!gallery || !info || !wrapper) return;
         const isGalleryAtBottom = () => {
@@ -567,7 +568,7 @@ export default function ForTodayClient({ slug }) {
         };
         const handleWheel = (e) => {
             if (scrollState === 'unlocked') return;
-            const wrapperRect     = wrapper.getBoundingClientRect();
+            const wrapperRect = wrapper.getBoundingClientRect();
             const isOnGallerySide = e.clientX < wrapperRect.left + wrapperRect.width / 2;
             e.preventDefault();
             if (isOnGallerySide) {
@@ -596,10 +597,10 @@ export default function ForTodayClient({ slug }) {
             }
         };
         gallery.addEventListener('touchstart', handleTouchStart, { passive: true });
-        gallery.addEventListener('touchend',   handleTouchEnd,   { passive: true });
+        gallery.addEventListener('touchend', handleTouchEnd, { passive: true });
         return () => {
             gallery.removeEventListener('touchstart', handleTouchStart);
-            gallery.removeEventListener('touchend',   handleTouchEnd);
+            gallery.removeEventListener('touchend', handleTouchEnd);
         };
     }, [isMobile]);
 
@@ -609,7 +610,7 @@ export default function ForTodayClient({ slug }) {
     };
 
     const variantHasMetal = (v, metal) => {
-        if (Array.isArray(v.metalType))      return v.metalType.includes(metal);
+        if (Array.isArray(v.metalType)) return v.metalType.includes(metal);
         if (typeof v.metalType === 'string') return v.metalType === metal;
         return false;
     };
@@ -638,18 +639,18 @@ export default function ForTodayClient({ slug }) {
                 ? product.images
                 : [product.img].filter(Boolean);
         const cartItem = {
-            _id:       product._id,
+            _id: product._id,
             variantId: activeVariant._id || selectedVariantIndex,
-            title:     activeVariant.title || product.title || product.name,
+            title: activeVariant.title || product.title || product.name,
             variantName: activeVariant.name || null,
-            newPrice:  activeVariant.newPrice ?? product.newPrice ?? product.price ?? 0,
-            images:    varImgs,
-            img:       varImgs[0] || '',
-            metal:     selectedMetal !== (T.all || 'All') ? selectedMetal : (activeVariant.metal || null),
-            stone:     stoneColors[selectedColor] || null,
+            newPrice: activeVariant.newPrice ?? product.newPrice ?? product.price ?? 0,
+            images: varImgs,
+            img: varImgs[0] || '',
+            metal: selectedMetal !== (T.all || 'All') ? selectedMetal : (activeVariant.metal || null),
+            stone: stoneColors[selectedColor] || null,
             qty,
-            slug:      product.slug,
-            category:  product.category,
+            slug: product.slug,
+            category: product.category,
         };
         window.dispatchEvent(new CustomEvent('add-to-cart', { detail: { item: cartItem } }));
         setAddedToCart(true);
@@ -667,19 +668,19 @@ export default function ForTodayClient({ slug }) {
         );
     }
 
-    const activeVariant      = product.variants?.[selectedVariantIndex] || getFirstVariant(product);
-    const images             = activeVariant.images?.length > 0 ? activeVariant.images : product.images?.length > 0 ? product.images : [product.img].filter(Boolean);
-    const oldPrice           = activeVariant.oldPrice ?? product.oldPrice ?? null;
-    const newPrice           = activeVariant.newPrice ?? product.newPrice ?? product.price ?? 0;
-    const isSale             = activeVariant.isSale   ?? product.isSale   ?? false;
+    const activeVariant = product.variants?.[selectedVariantIndex] || getFirstVariant(product);
+    const images = activeVariant.images?.length > 0 ? activeVariant.images : product.images?.length > 0 ? product.images : [product.img].filter(Boolean);
+    const oldPrice = activeVariant.oldPrice ?? product.oldPrice ?? null;
+    const newPrice = activeVariant.newPrice ?? product.newPrice ?? product.price ?? 0;
+    const isSale = activeVariant.isSale ?? product.isSale ?? false;
     const variantQtyRaw = activeVariant.quantity;
-    const variantQty    = variantQtyRaw !== undefined ? Number(variantQtyRaw) : null;
+    const variantQty = variantQtyRaw !== undefined ? Number(variantQtyRaw) : null;
     const inStock = (variantQty !== null ? variantQty > 0 : true)
-    && (activeVariant.inStock ?? product.inStock ?? true) !== false;
-    const displayTitle       = activeVariant.title    || product.title || product.name;
+        && (activeVariant.inStock ?? product.inStock ?? true) !== false;
+    const displayTitle = activeVariant.title || product.title || product.name;
     const displayDescription = activeVariant.description || product.description || '';
-    const displayMaterials   = activeVariant.materials?.length > 0 ? activeVariant.materials : (product.materials || []);
-    const displayGemstones   = activeVariant.gemstones?.length > 0 ? activeVariant.gemstones : (product.gemstones || []);
+    const displayMaterials = activeVariant.materials?.length > 0 ? activeVariant.materials : (product.materials || []);
+    const displayGemstones = activeVariant.gemstones?.length > 0 ? activeVariant.gemstones : (product.gemstones || []);
 
     const allMetalTypes = [...new Set(
         (product.variants || []).flatMap(v =>
@@ -806,7 +807,7 @@ export default function ForTodayClient({ slug }) {
                                         </span>
                                         <div className="jd-variant-grid">
                                             {filteredVariants.map((v) => {
-                                                const idx  = v._origIdx;
+                                                const idx = v._origIdx;
                                                 const vImg = v.images?.[0] || null;
                                                 return (
                                                     <button key={idx}
@@ -816,6 +817,7 @@ export default function ForTodayClient({ slug }) {
                                                         {vImg && (
                                                             <div className="jd-variant-card-img">
                                                                 <img src={getImgSrc(vImg)} alt={v.name || `Variant ${idx + 1}`}
+                                                                    width="64" height="64"
                                                                     onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                                             </div>
                                                         )}
@@ -896,6 +898,7 @@ export default function ForTodayClient({ slug }) {
                                                         <img src={getImgSrc(img)}
                                                             alt={`${displayTitle} view ${globalIdx + 1}`}
                                                             loading={globalIdx < 2 ? 'eager' : 'lazy'}
+                                                            width="640" height="800"
                                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                                     </div>
                                                 );
@@ -935,7 +938,7 @@ export default function ForTodayClient({ slug }) {
                                             </span>
                                             <div className="jd-variant-grid">
                                                 {filteredVariants.map((v) => {
-                                                    const idx  = v._origIdx;
+                                                    const idx = v._origIdx;
                                                     const vImg = v.images?.[0] || null;
                                                     return (
                                                         <button key={idx}
@@ -945,6 +948,7 @@ export default function ForTodayClient({ slug }) {
                                                             {vImg && (
                                                                 <div className="jd-variant-card-img">
                                                                     <img src={getImgSrc(vImg)} alt={v.name || `Variant ${idx + 1}`}
+                                                                        width="84" height="84"
                                                                         onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                                                 </div>
                                                             )}
@@ -1010,6 +1014,7 @@ export default function ForTodayClient({ slug }) {
                                     <div className="jd-related-img">
                                         <img src={getRelatedImgSrc(rp)} alt={rp.title || rp.name}
                                             loading="lazy"
+                                            width="400" height="533"
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                         {(getFirstVariant(rp).isSale || rp.isSale) && (
                                             <span className="jd-related-sale-badge">Sale</span>

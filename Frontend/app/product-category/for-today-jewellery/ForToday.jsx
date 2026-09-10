@@ -539,6 +539,8 @@ function QuickViewModal({ product, currency, T, onClose, onAddToCart, wishlist, 
                                 <img
                                     src={getImgSrc(activeItem.src)}
                                     alt={product.title || product.name}
+                                    width={860}
+                                    height={860}
                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                 />
@@ -585,6 +587,8 @@ function QuickViewModal({ product, currency, T, onClose, onAddToCart, wishlist, 
                                         <img
                                             src={getImgSrc(item.src)}
                                             alt={`view ${i + 1}`}
+                                            width={54}
+                                            height={54}
                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                         />
@@ -861,6 +865,8 @@ function ProductCard({ p, wishlist, toggleWishlist, T, currency, onQuickView }) 
                     <img
                         src={currentItem ? getImgSrc(currentItem.src) : '/placeholder.jpg'}
                         alt={p.title || p.name}
+                        width={400}
+                        height={480}
                         className="jw-card-img"
                         loading="lazy"
                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
@@ -1312,61 +1318,61 @@ export default function ForToday() {
             <Reviews />
 
             {/* ── Bottom Accordions ── */}
-                    <div className="jw-bottom-accordions">
+            <div className="jw-bottom-accordions">
 
-                        <AccordionItem title={T[16]}>
-                            <div className="jw-accordion-text">
-                                {FOR_TODAY_CONTENT_STRUCTURE.map((item, i) => {
-                                    if (item.type === 'h2') {
-                                        return <h2 key={i} className="jw-accordion-heading" dangerouslySetInnerHTML={{ __html: T[item.idx] }} />;
-                                    }
-                                    if (item.type === 'h3') {
-                                        return <h3 key={i} className="jw-accordion-heading" style={{ marginTop: '20px', fontSize: '18px' }} dangerouslySetInnerHTML={{ __html: T[item.idx] }} />;
-                                    }
-                                    if (item.type === 'p') {
-                                        return <p key={i} dangerouslySetInnerHTML={{ __html: T[item.idx] }} />;
-                                    }
-                                    if (item.type === 'ul') {
-                                        return (
-                                            <ul key={i} style={{ paddingLeft: '20px', marginBottom: '16px' }}>
-                                                {item.items.map((liIdx, j) => (
-                                                    <li key={j} dangerouslySetInnerHTML={{ __html: T[liIdx] }} />
-                                                ))}
-                                            </ul>
-                                        );
-                                    }
-                                    if (item.type === 'ul-links') {
-                                        return (
-                                            <ul key={i} style={{ paddingLeft: '20px', marginBottom: '16px' }}>
-                                                {item.links.map((lnk, j) => (
-                                                    <li key={j}>
-                                                        <Link
-                                                            href={lnk.href}
-                                                            style={{ color: '#007bff', textDecoration: 'underline' }}
-                                                        >
-                                                            {T[lnk.idx]}
-                                                        </Link>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        );
-                                    }
-                                    return null;
-                                })}
-                            </div>
-                        </AccordionItem>
-
-                        <AccordionItem title={T[17]}>
-                            <div className="jw-faq-list">
-                                {Array.from({ length: FAQ_COUNT }, (_, i) => (
-                                    <div key={i} className="jw-faq-item">
-                                        <p className="jw-faq-q">{i + 1}. {T[33 + i]}</p>
-                                        <p className="jw-faq-a">{T[53 + i]}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </AccordionItem>
+                <AccordionItem title={T[16]}>
+                    <div className="jw-accordion-text">
+                        {FOR_TODAY_CONTENT_STRUCTURE.map((item, i) => {
+                            if (item.type === 'h2') {
+                                return <h2 key={i} className="jw-accordion-heading" dangerouslySetInnerHTML={{ __html: T[item.idx] }} />;
+                            }
+                            if (item.type === 'h3') {
+                                return <h3 key={i} className="jw-accordion-heading" style={{ marginTop: '20px', fontSize: '18px' }} dangerouslySetInnerHTML={{ __html: T[item.idx] }} />;
+                            }
+                            if (item.type === 'p') {
+                                return <p key={i} dangerouslySetInnerHTML={{ __html: T[item.idx] }} />;
+                            }
+                            if (item.type === 'ul') {
+                                return (
+                                    <ul key={i} style={{ paddingLeft: '20px', marginBottom: '16px' }}>
+                                        {item.items.map((liIdx, j) => (
+                                            <li key={j} dangerouslySetInnerHTML={{ __html: T[liIdx] }} />
+                                        ))}
+                                    </ul>
+                                );
+                            }
+                            if (item.type === 'ul-links') {
+                                return (
+                                    <ul key={i} style={{ paddingLeft: '20px', marginBottom: '16px' }}>
+                                        {item.links.map((lnk, j) => (
+                                            <li key={j}>
+                                                <Link
+                                                    href={lnk.href}
+                                                    style={{ color: '#007bff', textDecoration: 'underline' }}
+                                                >
+                                                    {T[lnk.idx]}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                );
+                            }
+                            return null;
+                        })}
                     </div>
+                </AccordionItem>
+
+                <AccordionItem title={T[17]}>
+                    <div className="jw-faq-list">
+                        {Array.from({ length: FAQ_COUNT }, (_, i) => (
+                            <div key={i} className="jw-faq-item">
+                                <p className="jw-faq-q">{i + 1}. {T[33 + i]}</p>
+                                <p className="jw-faq-a">{T[53 + i]}</p>
+                            </div>
+                        ))}
+                    </div>
+                </AccordionItem>
+            </div>
         </div>
     );
 }

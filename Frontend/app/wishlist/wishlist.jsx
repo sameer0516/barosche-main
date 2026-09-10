@@ -72,8 +72,7 @@ export default function WishlistClient() {
                         </div>
                         <h2 className="wl-empty-title">Please login to view your wishlist</h2>
                         <p className="wl-empty-sub">
-                            Apni saved pieces dekhne ke liye pehle apne account mein login karein.
-                        </p>
+                            To view your saved pieces, please log in to your account first.                        </p>
                         <button
                             className="wl-btn-primary"
                             onClick={handleOpenLogin}

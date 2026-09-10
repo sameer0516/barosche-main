@@ -319,13 +319,20 @@ function QuickViewModal({ product, currency, onClose, onAddToCart, wishlist, onT
                                 <img
                                     src={`${API_BASE}${activeItem.src}`}
                                     alt={product.title || product.name}
+                                    width="600"
+                                    height="600"
                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                 />
                             )
                         ) : (
-                            <img src="/placeholder.jpg" alt="placeholder"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img
+                                src="/placeholder.jpg"
+                                alt="placeholder"
+                                width="600"
+                                height="600"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
                         )}
                     </div>
                     {mediaList.length > 1 && (
@@ -363,6 +370,8 @@ function QuickViewModal({ product, currency, onClose, onAddToCart, wishlist, onT
                                         <img
                                             src={`${API_BASE}${item.src}`}
                                             alt={`view ${i + 1}`}
+                                            width="54"
+                                            height="54"
                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                         />
@@ -626,6 +635,8 @@ function ProductCard({ p, wishlist, toggleWishlist, currency, onQuickView }) {
                     <img
                         src={currentItem ? `${API_BASE}${currentItem.src}` : '/placeholder.jpg'}
                         alt={p.title}
+                        width="400"
+                        height="480"
                         className="jw-card-img"
                         loading="lazy"
                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
@@ -856,9 +867,9 @@ export default function Mens() {
         const aPrice = getFirstVariant(a).newPrice || 0;
         const bPrice = getFirstVariant(b).newPrice || 0;
 
-        if (sort === 'price-asc')  return aPrice - bPrice;
+        if (sort === 'price-asc') return aPrice - bPrice;
         if (sort === 'price-desc') return bPrice - aPrice;
-        if (sort === 'newest')     return new Date(b.createdAt) - new Date(a.createdAt);
+        if (sort === 'newest') return new Date(b.createdAt) - new Date(a.createdAt);
         return 0;
     });
 
@@ -880,32 +891,32 @@ export default function Mens() {
                 if (sb) { sb.style.position = ''; sb.style.top = ''; sb.style.width = ''; }
                 return;
             }
-            const layout  = layoutRef.current;
+            const layout = layoutRef.current;
             const sidebar = sidebarRef.current;
             if (!layout || !sidebar) return;
 
-            const scrollY    = window.scrollY;
-            const layoutTop  = layout.offsetTop;
-            const layoutH    = layout.offsetHeight;
-            const sidebarH   = sidebar.offsetHeight;
-            const sidebarW   = sidebar.parentElement?.offsetWidth || sidebar.offsetWidth;
+            const scrollY = window.scrollY;
+            const layoutTop = layout.offsetTop;
+            const layoutH = layout.offsetHeight;
+            const sidebarH = sidebar.offsetHeight;
+            const sidebarW = sidebar.parentElement?.offsetWidth || sidebar.offsetWidth;
             const paddingBot = parseFloat(window.getComputedStyle(layout).paddingBottom) || 0;
-            const contentH   = layoutH - paddingBot;
+            const contentH = layoutH - paddingBot;
             const stickStart = layoutTop - TOP_OFFSET;
-            const stickEnd   = layoutTop + contentH - sidebarH - TOP_OFFSET;
+            const stickEnd = layoutTop + contentH - sidebarH - TOP_OFFSET;
 
             if (scrollY < stickStart) {
                 sidebar.style.position = 'relative';
-                sidebar.style.top      = '0';
-                sidebar.style.width    = '';
+                sidebar.style.top = '0';
+                sidebar.style.width = '';
             } else if (scrollY >= stickEnd) {
                 sidebar.style.position = 'absolute';
-                sidebar.style.top      = (contentH - sidebarH) + 'px';
-                sidebar.style.width    = sidebarW + 'px';
+                sidebar.style.top = (contentH - sidebarH) + 'px';
+                sidebar.style.width = sidebarW + 'px';
             } else {
                 sidebar.style.position = 'fixed';
-                sidebar.style.top      = TOP_OFFSET + 'px';
-                sidebar.style.width    = sidebarW + 'px';
+                sidebar.style.top = TOP_OFFSET + 'px';
+                sidebar.style.width = sidebarW + 'px';
             }
         };
         window.addEventListener('scroll', update, { passive: true });
@@ -1083,39 +1094,39 @@ export default function Mens() {
                         ) : (
                             <div className="jw-empty">
                                 <p>No products found{activeCategory ? ` in "${activeCategory}"` : ''}.</p>
-                               
+
                             </div>
                         )}
                     </div>
 
                 </main>
             </div>
-             <Reviews/>
+            <Reviews />
 
-               <div className="jw-bottom-accordions">
+            <div className="jw-bottom-accordions">
 
-                        <AccordionItem title="Mens Jewellery">
-                            <div className="jw-accordion-text">
-                                {mensJewelleryContent.map((item, i) =>
-                                    item.type === 'h'
-                                        ? <h3 key={i} className="jw-accordion-heading" dangerouslySetInnerHTML={{ __html: item.text }} />
-                                        : <p key={i} dangerouslySetInnerHTML={{ __html: item.text }} />
-                                )}
-                            </div>
-                        </AccordionItem>
-
-                        {/* ── FAQ ── */}
-                        <AccordionItem title="Frequently Asked Questions">
-                            <div className="jw-faq-list">
-                                {faqData.map((item, i) => (
-                                    <div key={i} className="jw-faq-item">
-                                        <p className="jw-faq-q" dangerouslySetInnerHTML={{ __html: `${i + 1}. ${item.q}` }} />
-                                        <p className="jw-faq-a" dangerouslySetInnerHTML={{ __html: item.a }} />
-                                    </div>
-                                ))}
-                            </div>
-                        </AccordionItem>
+                <AccordionItem title="Mens Jewellery">
+                    <div className="jw-accordion-text">
+                        {mensJewelleryContent.map((item, i) =>
+                            item.type === 'h'
+                                ? <h3 key={i} className="jw-accordion-heading" dangerouslySetInnerHTML={{ __html: item.text }} />
+                                : <p key={i} dangerouslySetInnerHTML={{ __html: item.text }} />
+                        )}
                     </div>
+                </AccordionItem>
+
+                {/* ── FAQ ── */}
+                <AccordionItem title="Frequently Asked Questions">
+                    <div className="jw-faq-list">
+                        {faqData.map((item, i) => (
+                            <div key={i} className="jw-faq-item">
+                                <p className="jw-faq-q" dangerouslySetInnerHTML={{ __html: `${i + 1}. ${item.q}` }} />
+                                <p className="jw-faq-a" dangerouslySetInnerHTML={{ __html: item.a }} />
+                            </div>
+                        ))}
+                    </div>
+                </AccordionItem>
+            </div>
         </div>
     );
 }

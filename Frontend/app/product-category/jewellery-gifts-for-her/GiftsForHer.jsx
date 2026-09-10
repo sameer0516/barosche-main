@@ -47,7 +47,7 @@ const DEFAULT_UI = {
     priceHighLow: "Price: High to Low",
     newest: "Newest",
     filtersText: "Filters",
-    fashionJewellery: "Luxury Jewellery Gifts",
+    fashionJewellery: "Jewellery Gifts for Her",
     faq: "Frequently Asked Questions",
     retry: "Retry",
     gridView: "Grid view",
@@ -59,7 +59,7 @@ const DEFAULT_UI = {
 
     showingOf: "Showing",
     showingResults: "results",
-    pageTitle: "Luxury Jewellery Gifts for Her – Elegant & Timeless Style ",
+    pageTitle: "Elegant Jewellery Gifts for Her – Timeless & Meaningful ",
     priceOnRequest: "Price on request",
 };
 
@@ -337,7 +337,7 @@ const fashionJewelleryContent = [
 
     { type: 'h', text: "What Makes Us Different" },
     { type: 'p', text: "<br/>•<strong> Minimalist Luxury Designs:</strong> Our jewellery reflects a clean, modern aesthetic that balances simplicity with sophistication—perfect for those who appreciate understated elegance.<br/>•<strong> High-Quality Craftsmanship: </strong>Each piece is carefully crafted with attention to detail, ensuring durability, comfort, and a premium finish that lasts over time.<br/>• <strong>Perfect for Gifting: </strong>Every design is created with gifting in mind, making it easy to find a meaningful <strong>gift for her jewellery</strong> that feels personal and thoughtful.<br/>• <strong>Designed for Everyday Elegance: </strong>Our collections are made to be worn daily, allowing her to enjoy style and comfort without compromise." },
-    { type: 'p', text: "Each Barosche piece is a reflection of thoughtful design, combining sophistication with simplicity. When you choose Barosche, you're not just selecting <a href='/https://barosche.com/'>fine jewellery </a>—you're choosing a timeless expression of style, quality, and meaning that she can cherish every day." },
+    { type: 'p', text: "Each Barosche piece is a reflection of thoughtful design, combining sophistication with simplicity. When you choose Barosche, you're not just selecting <a href='/'>fine jewellery </a>—you're choosing a timeless expression of style, quality, and meaning that she can cherish every day." },
     { type: 'p', text: "A thoughtful jewellery gift for her is more than just an accessory—it's a symbol of love, care, and appreciation. At Barosche, we create jewellery that blends elegance with simplicity, making every piece perfect for gifting and everyday wear." },
     { type: 'p', text: "Explore our collection and find the perfect piece that she will cherish every day." },
 ];

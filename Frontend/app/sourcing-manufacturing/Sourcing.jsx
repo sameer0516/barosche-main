@@ -97,7 +97,7 @@ export default function Sourcing() {
             {translationStatus === "loading" && (
                 <div className="translation-loading-bar" aria-hidden="true" />
             )}
-            <div className="Shipping">
+            <div id="retuen-section" className="Shipping">
                 <div className="Shipping-container">
                     <div className="row">
                         <div className="col-12">

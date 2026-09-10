@@ -627,6 +627,8 @@ function MobileSlider({ media, getImgSrc, productName, isSale, selectedImageInde
                             <img
                                 src={getImgSrc(item.src)}
                                 alt={`${productName} view ${idx + 1}`}
+                                width={400}
+                                height={533}
                                 loading={idx === 0 ? 'eager' : 'lazy'}
                                 onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                 onClick={() => onImageClick && onImageClick(idx)}
@@ -749,6 +751,8 @@ function Lightbox({ media, getImgSrc, productName, startIndex, onClose }) {
                         src={getImgSrc(currentItem.src)}
                         alt={`${productName} view ${index + 1}`}
                         className="jd-lightbox-img"
+                        width={800}
+                        height={1000}
                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                         style={{ maxWidth: '100%', maxHeight: '88vh', objectFit: 'contain', borderRadius: 4 }}
                     />
@@ -831,8 +835,15 @@ export default function RingDetailClient({ slug, initialProduct = null }) {
         return () => window.removeEventListener('resize', check);
     }, []);
 
-    // 🆕 FIX: jab slug badle (client-side navigation, e.g. related product click)
-    // toh naye SSR initialProduct ke sath state sync ho jaani chahiye
+    // Placeholder shell page kisi bhi naye/future product ko serve kar sakta hai
+    // (jab slug build time pe exist nahi karta tha). Isliye real slug hamesha
+    // browser URL se padho, prop se nahi (prop "placeholder" ho sakta hai).
+    function getRealSlugFromURL() {
+        if (typeof window === "undefined") return null;
+        const parts = window.location.pathname.split("/").filter(Boolean);
+        return parts.length > 0 ? decodeURIComponent(parts[parts.length - 1]) : null;
+    }
+
     useEffect(() => {
         setProduct(initialProduct || null);
         setLoading(!initialProduct);
@@ -840,16 +851,20 @@ export default function RingDetailClient({ slug, initialProduct = null }) {
     }, [slug, initialProduct]);
 
     useEffect(() => {
-        if (!slug) return;
+        const realSlug = getRealSlugFromURL() || slug;
+        if (!realSlug || realSlug === "placeholder") {
+            if (!initialProduct) { setLoading(false); setError("Product not found"); }
+            return;
+        }
         const fetchProduct = async () => {
             try {
-                const res = await fetch(`${API_BASE}/api/products/${slug}`);
+                const res = await fetch(`${API_BASE}/api/products/${realSlug}`);
                 if (!res.ok) throw new Error(`Server error: ${res.status}`);
                 const data = await res.json();
                 if (data.success) {
                     setProduct(data.product);
                     setError(null);
-                    // 🆕 FIX: sirf tab reset karo jab product actually badla ho
+                    // sirf tab reset karo jab product actually badla ho
                     // (agar SSR se already same product mila tha, toh selections mat udaao)
                     if (!initialProduct || initialProduct.slug !== data.product.slug) {
                         setSelectedVariantIndex(0);
@@ -864,7 +879,7 @@ export default function RingDetailClient({ slug, initialProduct = null }) {
                                 const relData = await relRes.json();
                                 if (relData.success) {
                                     setRelatedProducts(
-                                        (relData.products || []).filter(p => p.slug !== slug).slice(0, 5)
+                                        (relData.products || []).filter(p => p.slug !== realSlug).slice(0, 5)
                                     );
                                 }
                             }
@@ -874,7 +889,7 @@ export default function RingDetailClient({ slug, initialProduct = null }) {
                     throw new Error(data.message || 'Product not found');
                 }
             } catch (err) {
-                // 🆕 FIX: agar SSR se product mil chuka tha toh client fetch fail hone par
+                // agar SSR se product mil chuka tha toh client fetch fail hone par
                 // "Product Not Found" screen mat dikhao — jo hai use hi render hone do
                 if (!initialProduct) setError(err.message);
                 console.error('RingDetailClient fetch error:', err.message);
@@ -882,7 +897,7 @@ export default function RingDetailClient({ slug, initialProduct = null }) {
             finally { setLoading(false); }
         };
         fetchProduct();
-    }, [slug]);
+    }, [slug, initialProduct]);
 
     useEffect(() => {
         setSelectedImageIndex(0);
@@ -1261,8 +1276,14 @@ export default function RingDetailClient({ slug, initialProduct = null }) {
                                                     >
                                                         {vImg && (
                                                             <div className="jd-variant-card-img">
-                                                                <img src={getImgSrc(vImg)} alt={v.name || `Variant ${idx + 1}`}
-                                                                    onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                                                {vImg && (
+                                                                    <div className="jd-variant-card-img">
+                                                                        <img src={getImgSrc(vImg)} alt={v.name || `Variant ${idx + 1}`}
+                                                                            width={84}
+                                                                            height={84}
+                                                                            onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                                                    </div>
+                                                                )}
                                                             </div>
                                                         )}
                                                         <span className="jd-variant-card-name">
@@ -1380,6 +1401,8 @@ export default function RingDetailClient({ slug, initialProduct = null }) {
                                                             <img
                                                                 src={getImgSrc(item.src)}
                                                                 alt={`${displayTitle} view ${globalIdx + 1}`}
+                                                                width={800}
+                                                                height={1000}
                                                                 loading={globalIdx < 2 ? 'eager' : 'lazy'}
                                                                 onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                             />
@@ -1440,6 +1463,8 @@ export default function RingDetailClient({ slug, initialProduct = null }) {
                                                             {vImg && (
                                                                 <div className="jd-variant-card-img">
                                                                     <img src={getImgSrc(vImg)} alt={v.name || `Variant ${idx + 1}`}
+                                                                        width={84}
+                                                                        height={84}
                                                                         onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                                                 </div>
                                                             )}
@@ -1531,6 +1556,8 @@ export default function RingDetailClient({ slug, initialProduct = null }) {
                                         <img
                                             src={getRelatedImgSrc(rp)}
                                             alt={rp.title || rp.name}
+                                            width={300}
+                                            height={375}
                                             loading="lazy"
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                         />

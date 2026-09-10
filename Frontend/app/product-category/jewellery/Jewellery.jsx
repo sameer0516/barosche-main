@@ -47,7 +47,7 @@ const DEFAULT_UI = {
     priceHighLow: "Price: High to Low",
     newest: "Newest",
     filtersText: "Filters",
-    fashionJewellery: "Fashion Jewellery",
+    fashionJewellery: "Fine Gold & Silver Jewellery",
     faq: "Frequently Asked Questions",
     retry: "Retry",
     gridView: "Grid view",
@@ -147,7 +147,7 @@ const categorySlugMap = {
     "Pendants": "pendants",
     "Bracelets": "bracelets",
     "Rings": "rings",
-    "Women": "jewellery",
+    "Women": "womens",
 };
 
 const DEFAULT_PRICES = [
@@ -210,7 +210,7 @@ const faqData = [
     },
 
 
-     {
+    {
         q: " How should I care for silver jewellery?",
         a: "  Store it in a dry place, avoid moisture, and clean it gently to maintain its shine and prevent tarnishing."
     },
@@ -454,10 +454,10 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                     controls
                                 />
                             ) : (
-                                <img src={`${API_BASE}${activeItem.src}`} alt={product.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                <img src={`${API_BASE}${activeItem.src}`} alt={product.title} width="430" height="430" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                             )
                         ) : (
-                            <img src="/placeholder.jpg" alt="placeholder" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img src="/placeholder.jpg" alt="placeholder" width="430" height="430" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         )}
                     </div>
                     {mediaList.length > 1 && (
@@ -483,7 +483,7 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                             </span>
                                         </>
                                     ) : (
-                                        <img src={`${API_BASE}${item.src}`} alt={`view ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
+                                        <img src={`${API_BASE}${item.src}`} alt={`view ${i + 1}`} width="54" height="54" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                     )}
                                 </button>
                             ))}
@@ -658,6 +658,7 @@ function ProductCard({ p, wishlist, toggleWishlist, currency, ui, onQuickView })
                         alt={p.title}
                         className="jw-card-img"
                         loading="lazy"
+                        width="400" height="480"
                         onError={(e) => { e.target.src = "/placeholder.jpg"; }}
                     />
                 )}
@@ -972,27 +973,27 @@ export default function Jewellery() {
             </div>
             <Reviews />
 
-              <div className="jw-bottom-accordions">
-                        <AccordionItem title={ui.fashionJewellery}>
-                            <div className="jw-accordion-text">
-                                {translatedFashionContent.map((item, i) =>
-                                    item.type === 'h'
-                                        ? <h3 key={i} className="jw-accordion-heading" dangerouslySetInnerHTML={{ __html: item.text }} />
-                                        : <p key={i} dangerouslySetInnerHTML={{ __html: item.text }} />
-                                )}
-                            </div>
-                        </AccordionItem>
-                        <AccordionItem title={ui.faq}>
-                            <div className="jw-faq-list">
-                                {translatedFaq.map((item, i) => (
-                                    <div key={i} className="jw-faq-item">
-                                        <p className="jw-faq-q" dangerouslySetInnerHTML={{ __html: `${i + 1}. ${item.q}` }} />
-                                        <p className="jw-faq-a" dangerouslySetInnerHTML={{ __html: item.a }} />
-                                    </div>
-                                ))}
-                            </div>
-                        </AccordionItem>
+            <div className="jw-bottom-accordions">
+                <AccordionItem title={ui.fashionJewellery}>
+                    <div className="jw-accordion-text">
+                        {translatedFashionContent.map((item, i) =>
+                            item.type === 'h'
+                                ? <h3 key={i} className="jw-accordion-heading" dangerouslySetInnerHTML={{ __html: item.text }} />
+                                : <p key={i} dangerouslySetInnerHTML={{ __html: item.text }} />
+                        )}
                     </div>
+                </AccordionItem>
+                <AccordionItem title={ui.faq}>
+                    <div className="jw-faq-list">
+                        {translatedFaq.map((item, i) => (
+                            <div key={i} className="jw-faq-item">
+                                <p className="jw-faq-q" dangerouslySetInnerHTML={{ __html: `${i + 1}. ${item.q}` }} />
+                                <p className="jw-faq-a" dangerouslySetInnerHTML={{ __html: item.a }} />
+                            </div>
+                        ))}
+                    </div>
+                </AccordionItem>
+            </div>
         </div>
     );
 }

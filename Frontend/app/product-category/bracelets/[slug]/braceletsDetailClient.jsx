@@ -1473,6 +1473,8 @@ export default function BraceletsDetailClient({ slug, initialProduct = null, ini
                                                                 src={getImgSrc(item.src)}
                                                                 alt={`${displayTitle} view ${globalIdx + 1}`}
                                                                 loading={globalIdx < 2 ? 'eager' : 'lazy'}
+                                                                width={800}
+                                                                height={1000}
                                                                 onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                                                 onClick={() => { setSelectedImageIndex(globalIdx); setLightboxIndex(globalIdx); setLightboxOpen(true); }}
                                                             />
@@ -1493,7 +1495,7 @@ export default function BraceletsDetailClient({ slug, initialProduct = null, ini
                                 <div className="jd-info-inner">
                                     <span className="jd-brand-tag">{t.labels.brandTag}</span>
                                     <RatingStars rating={4.8} count={124} reviewsLabel={t.labels.reviews} />
-                                    <h2 className="jd-product-title">{displayTitle}</h2>
+                                    <h1 className="jd-product-title">{displayTitle}</h1>
 
                                     <div className="jd-pricing-row">
                                         {oldPrice && Number(oldPrice) > Number(newPrice) && (
@@ -1533,6 +1535,7 @@ export default function BraceletsDetailClient({ slug, initialProduct = null, ini
                                                             {vImg && (
                                                                 <div className="jd-variant-card-img">
                                                                     <img src={getImgSrc(vImg)} alt={v.name || `Variant ${idx + 1}`}
+                                                                        width={84} height={84}
                                                                         onError={(e) => { e.target.src = '/placeholder.jpg'; }} />
                                                                 </div>
                                                             )}
@@ -1633,6 +1636,8 @@ export default function BraceletsDetailClient({ slug, initialProduct = null, ini
                                             src={getRelatedImgSrc(rp)}
                                             alt={rp.title || rp.name}
                                             loading="lazy"
+                                            width={300}
+                                            height={375}
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                         />
                                     </div>

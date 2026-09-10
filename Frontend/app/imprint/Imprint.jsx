@@ -92,7 +92,7 @@ export default function Imprint() {
       {translationStatus === "loading" && (
         <div className="translation-loading-bar" aria-hidden="true" />
       )}
-      <div className="Imprint">
+      <div id="retuen-section" className="Imprint">
         <div className="Imprint-container">
           <div className="row">
             <div className="col-12">
@@ -104,7 +104,7 @@ export default function Imprint() {
                 <div className="Imprint-input">
                   <span>{content.labels.address}</span> Herrlichkeit 11, Syke, 28857 Germany
                 </div>
-                 <div className="Imprint-input">
+                <div className="Imprint-input">
                   <span>{content.labels.email}</span> info@barosche.com
                 </div>
               </div>

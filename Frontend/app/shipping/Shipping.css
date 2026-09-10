@@ -9,6 +9,11 @@
     width: 1500px;
 }
 
+#retuen-section  {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .Shipping-title {
     text-align: center;
     font-size: 34px;

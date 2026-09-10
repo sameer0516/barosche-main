@@ -254,11 +254,13 @@ function MobileSlider({ images, getImgSrc, productName, isSale, selectedImageInd
                 {images.map((img, idx) => (
                     <div className="jd-mobile-slide" key={idx}>
                         <img
-                            src={getImgSrc(img)}
-                            alt={`${productName} view ${idx + 1}`}
-                            loading={idx === 0 ? 'eager' : 'lazy'}
-                            onError={(e) => { e.target.src = '/placeholder.jpg'; }}
-                        />
+    src={getImgSrc(img)}
+    alt={`${productName} view ${idx + 1}`}
+    width={400}
+    height={533}
+    loading={idx === 0 ? 'eager' : 'lazy'}
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                     </div>
                 ))}
             </div>
@@ -345,10 +347,12 @@ function InstallmentSection({ price }) {
                 <div className="payment-card">
                     <div className="logo-box">
                         <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
-                            alt="PayPal"
-                            className="paypal-logo"
-                        />
+    src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+    alt="PayPal"
+    className="paypal-logo"
+    width={40}
+    height={24}
+/>
                     </div>
                     <div className="info-box">
                         <p>
@@ -760,10 +764,12 @@ export default function WomensDetailClient({ slug }) {
                                                         {vImg && (
                                                             <div className="jd-variant-card-img">
                                                                 <img
-                                                                    src={getImgSrc(vImg)}
-                                                                    alt={v.name || `Variant ${idx + 1}`}
-                                                                    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
-                                                                />
+    src={getImgSrc(vImg)}
+    alt={v.name || `Variant ${idx + 1}`}
+    width={84}
+    height={84}
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                                                             </div>
                                                         )}
                                                         <span className="jd-variant-card-name">
@@ -857,11 +863,13 @@ export default function WomensDetailClient({ slug }) {
                                                         onClick={() => setSelectedImageIndex(globalIdx)}
                                                     >
                                                         <img
-                                                            src={getImgSrc(img)}
-                                                            alt={`${displayTitle} view ${globalIdx + 1}`}
-                                                            loading={globalIdx < 2 ? 'eager' : 'lazy'}
-                                                            onError={(e) => { e.target.src = '/placeholder.jpg'; }}
-                                                        />
+    src={getImgSrc(img)}
+    alt={`${displayTitle} view ${globalIdx + 1}`}
+    width={800}
+    height={1000}
+    loading={globalIdx < 2 ? 'eager' : 'lazy'}
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                                                     </div>
                                                 );
                                             })}
@@ -921,11 +929,13 @@ export default function WomensDetailClient({ slug }) {
                                                         >
                                                             {vImg && (
                                                                 <div className="jd-variant-card-img">
-                                                                    <img
-                                                                        src={getImgSrc(vImg)}
-                                                                        alt={v.name || `Variant ${idx + 1}`}
-                                                                        onError={(e) => { e.target.src = '/placeholder.jpg'; }}
-                                                                    />
+                                                                 <img
+    src={getImgSrc(vImg)}
+    alt={v.name || `Variant ${idx + 1}`}
+    width={84}
+    height={84}
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                                                                 </div>
                                                             )}
                                                             <span className="jd-variant-card-name">
@@ -998,12 +1008,14 @@ export default function WomensDetailClient({ slug }) {
                                     className="jd-related-card"
                                 >
                                     <div className="jd-related-img">
-                                        <img
-                                            src={getRelatedImgSrc(rp)}
-                                            alt={rp.title || rp.name}
-                                            loading="lazy"
-                                            onError={(e) => { e.target.src = '/placeholder.jpg'; }}
-                                        />
+                                      <img
+    src={getRelatedImgSrc(rp)}
+    alt={rp.title || rp.name}
+    width={300}
+    height={375}
+    loading="lazy"
+    onError={(e) => { e.target.src = '/placeholder.jpg'; }}
+/>
                                         {(getFirstVariant(rp).isSale || rp.isSale) && (
                                             <span className="jd-related-sale-badge">Sale</span>
                                         )}

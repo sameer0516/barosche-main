@@ -5,6 +5,11 @@
     justify-content: center;
 }
 
+#retuen-section  {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .Shipping-container {
     width: 1500px;
 }

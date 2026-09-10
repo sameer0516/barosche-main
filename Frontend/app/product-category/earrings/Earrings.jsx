@@ -41,7 +41,7 @@ const DEFAULT_UI = {
     priceHighLow: "Price: High to Low",
     newest: "Newest",
     filtersText: "Filters",
-    everydayWear: "Everyday Wear Jewellery",
+    everydayWear: "Earrings for Women",
     faq: "Frequently Asked Questions",
     retry: "Retry",
     gridView: "Grid view",
@@ -53,7 +53,7 @@ const DEFAULT_UI = {
     checkConsole: "Check browser console (F12) for API response.",
     showingOf: "Showing",
     showingResults: "results",
-    pageTitle: "Lightweight Daily Wear Fine Jewellery for Everyday Style",
+    pageTitle: "Timeless Earrings for Women – Everyday Elegance & Statement Styles",
     priceOnRequest: "Price on request",
     viewDetails: "View Details",
     qty: "Qty",
@@ -519,12 +519,15 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                 <img
                                     src={getImgSrc(activeItem.src)}
                                     alt={product.title || product.name}
+                                    width={400}
+                                    height={400}
                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                 />
                             )
                         ) : (
                             <img src="/placeholder.jpg" alt="placeholder"
+                                width={400} height={400}
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         )}
                     </div>
@@ -565,6 +568,8 @@ function QuickViewModal({ product, currency, ui, onClose, onAddToCart, wishlist,
                                         <img
                                             src={getImgSrc(item.src)}
                                             alt={`view ${i + 1}`}
+                                            width={54}
+                                            height={54}
                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                             onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                                         />
@@ -825,6 +830,8 @@ function ProductCard({ p, wishlist, toggleWishlist, currency, ui, onQuickView, o
                         alt={p.title}
                         className="jw-card-img"
                         loading="lazy"
+                        width={500}
+                        height={600}
                         onError={(e) => { e.target.src = '/placeholder.jpg'; }}
                     />
                 )}
@@ -1143,37 +1150,37 @@ export default function Earrings({ initialProducts = [] }) {
             </div>
             <Reviews />
 
-               <div className="jw-bottom-accordions">
-                        <AccordionItem title={ui.everydayWear}>
-                            <div className="jw-accordion-text">
-                                {translatedEarringContent.map((item, i) => {
-                                    if (item.type === 'h') {
-                                        return <h3 key={i} className="jw-accordion-heading">{item.text}</h3>;
-                                    }
-                                    if (item.type === 'ul') {
-                                        return (
-                                            <ul key={i} className="jw-accordion-ul">
-                                                {item.items.map((it, j) => (
-                                                    <li key={j} dangerouslySetInnerHTML={{ __html: it }} />
-                                                ))}
-                                            </ul>
-                                        );
-                                    }
-                                    return <p key={i} dangerouslySetInnerHTML={{ __html: item.text }} />;
-                                })}
-                            </div>
-                        </AccordionItem>
-                        <AccordionItem title={ui.faq}>
-                            <div className="jw-faq-list">
-                                {translatedFaq.map((item, i) => (
-                                    <div key={i} className="jw-faq-item">
-                                        <p className="jw-faq-q">{i + 1}. {item.q}</p>
-                                        <p className="jw-faq-a">{item.a}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </AccordionItem>
+            <div className="jw-bottom-accordions">
+                <AccordionItem title={ui.everydayWear}>
+                    <div className="jw-accordion-text">
+                        {translatedEarringContent.map((item, i) => {
+                            if (item.type === 'h') {
+                                return <h3 key={i} className="jw-accordion-heading">{item.text}</h3>;
+                            }
+                            if (item.type === 'ul') {
+                                return (
+                                    <ul key={i} className="jw-accordion-ul">
+                                        {item.items.map((it, j) => (
+                                            <li key={j} dangerouslySetInnerHTML={{ __html: it }} />
+                                        ))}
+                                    </ul>
+                                );
+                            }
+                            return <p key={i} dangerouslySetInnerHTML={{ __html: item.text }} />;
+                        })}
                     </div>
+                </AccordionItem>
+                <AccordionItem title={ui.faq}>
+                    <div className="jw-faq-list">
+                        {translatedFaq.map((item, i) => (
+                            <div key={i} className="jw-faq-item">
+                                <p className="jw-faq-q">{i + 1}. {item.q}</p>
+                                <p className="jw-faq-a">{item.a}</p>
+                            </div>
+                        ))}
+                    </div>
+                </AccordionItem>
+            </div>
         </div>
     );
 }

@@ -35,7 +35,9 @@ export async function generateMetadata({ params }) {
     const siteUrl = 'https://barosche.com';
     const pageUrl = `${siteUrl}/product-category/rings/${product.slug}`;
 
-    const rawImg = product.images?.length > 0 ? product.images[0] : product.img || '';
+    const rawImg = product.images?.length > 0
+        ? product.images[0]
+        : product.variants?.[0]?.images?.[0] || product.img || '';
     const imageUrl = rawImg.startsWith('http') ? rawImg : `${API_BASE}${rawImg}`;
     const title = `${product.title || product.name} | Barosche Rings`;
     const description = (product.description || '').slice(0, 160);
@@ -69,11 +71,15 @@ export async function generateMetadata({ params }) {
 function ProductJsonLd({ product }) {
     const pageUrl = `${SITE_URL}/product-category/rings/${product.slug}/`;
 
+    const variantImages = product.variants?.[0]?.images || [];
+
     const rawImages = product.images?.length > 0
         ? product.images
-        : product.img
-            ? [product.img]
-            : [];
+        : variantImages.length > 0
+            ? variantImages
+            : product.img
+                ? [product.img]
+                : [];
     const imageUrls = rawImages.map((img) =>
         img.startsWith('http') ? img : `${API_BASE}${img}`
     );
@@ -162,7 +168,7 @@ function ProductJsonLd({ product }) {
                 color: product.color || undefined,
                 size: product.size || undefined,
                 category: 'Jewellery > Rings',
-                material: materials.length ? materials : undefined,
+                material: materials.length ? materials.join(', ') : undefined,
                 brand: {
                     '@type': 'Brand',
                     name: 'Barosche',
